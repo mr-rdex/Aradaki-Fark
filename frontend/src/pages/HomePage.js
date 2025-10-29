@@ -73,6 +73,41 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Recently Viewed Section - Only show if user has viewed cars */}
+      {recentlyViewed.length > 0 && (
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center">
+                <Clock className="w-6 h-6 text-blue-500 mr-3" />
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Son Görüntülenen Araçlar</h2>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {recentlyViewed.slice(0, 5).map((car) => (
+                <div
+                  key={car.CarID}
+                  onClick={() => navigate(`/car/${car.CarID}`)}
+                  className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
+                >
+                  <div className="relative h-32">
+                    <img
+                      src={car.CarPhotos}
+                      alt={`${car.ArabaMarka} ${car.CarModel}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-3">
+                    <h3 className="font-bold text-sm text-gray-900 truncate">{car.ArabaMarka}</h3>
+                    <p className="text-xs text-gray-600 truncate">{car.CarModel}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Popular Cars Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
