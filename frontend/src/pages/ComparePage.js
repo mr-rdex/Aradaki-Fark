@@ -73,6 +73,16 @@ const ComparePage = () => {
     }
   };
 
+  const handleDownloadPDF = () => {
+    try {
+      generateComparisonPDF(car1, car2);
+      toast.success('PDF raporu indiriliyor...');
+    } catch (error) {
+      console.error('PDF oluşturma hatası:', error);
+      toast.error('PDF oluşturulamadı');
+    }
+  };
+
   const formatPrice = (price) => {
     if (!price) return 'Belirtilmemiş';
     return new Intl.NumberFormat('tr-TR', {
