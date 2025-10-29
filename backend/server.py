@@ -555,7 +555,7 @@ async def get_all_users(current_user: dict = Depends(get_current_admin)):
 @api_router.put("/admin/users/{user_id}/role")
 async def update_user_role(
     user_id: str,
-    role: str,
+    role: str = Query(...),
     current_user: dict = Depends(get_current_admin)
 ):
     """Update user role (admin only)"""
