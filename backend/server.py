@@ -10,9 +10,10 @@ from datetime import datetime
 
 from models import (
     Car, CarCreate, CarUpdate,
-    User, UserCreate, UserLogin, UserInDB,
+    User, UserCreate, UserLogin, UserInDB, UserUpdate,
     Review, ReviewCreate,
-    ComparisonRequest, FavoriteComparison
+    ComparisonRequest, FavoriteComparison,
+    ForumTopic, ForumTopicCreate, ForumComment, ForumCommentCreate
 )
 from auth import (
     get_password_hash, verify_password, create_access_token,
