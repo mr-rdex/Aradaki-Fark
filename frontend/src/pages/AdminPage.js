@@ -12,6 +12,8 @@ const AdminPage = () => {
   const [users, setUsers] = useState([]);
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [expandedBrands, setExpandedBrands] = useState({});
 
   useEffect(() => {
     if (!authLoading) {
