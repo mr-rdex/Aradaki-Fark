@@ -19,9 +19,10 @@ const RegisterPage = () => {
   const [showKvkkModal, setShowKvkkModal] = useState(false);
 
   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     });
   };
 
