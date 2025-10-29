@@ -145,6 +145,8 @@ test_plan:
   current_focus:
     - "PDF Export Utility"
     - "PDF Download Button"
+    - "Compare API Endpoint"
+    - "Cars Listing API"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
