@@ -231,6 +231,13 @@ const Navbar = () => {
               Karşılaştır
             </Link>
             <Link
+              to="/forum"
+              className="block py-2 text-gray-700 hover:text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Forum
+            </Link>
+            <Link
               to="/popular-comparisons"
               className="block py-2 text-gray-700 hover:text-blue-600"
               onClick={() => setIsMenuOpen(false)}
