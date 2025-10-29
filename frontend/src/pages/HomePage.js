@@ -9,6 +9,7 @@ import ComparisonTool from '../components/ComparisonTool';
 const HomePage = () => {
   const navigate = useNavigate();
   const [popularCars, setPopularCars] = useState([]);
+  const [recentlyViewed, setRecentlyViewed] = useState([]);
   const [bestBaggage, setBestBaggage] = useState([]);
   const [bestAcceleration, setBestAcceleration] = useState([]);
   const [bestEconomy, setBestEconomy] = useState([]);
@@ -18,6 +19,7 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchData();
+    setRecentlyViewed(getRecentlyViewed());
   }, []);
 
   const fetchData = async () => {
