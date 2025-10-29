@@ -63,7 +63,7 @@ const HomePage = () => {
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
               Araçları karşılaştırın, doğru seçimi yapın
             </p>
-            <div className="bg-white rounded-lg p-2 max-w-2xl mx-auto">
+            <div className="bg-white rounded-lg shadow-xl max-w-4xl mx-auto overflow-hidden">
               <ComparisonTool />
             </div>
           </div>
