@@ -36,6 +36,8 @@ function App() {
                       <Route path="/popular-comparisons" element={<PopularComparisonsPage />} />
                       <Route path="/profile" element={<ProfilePage />} />
                       <Route path="/admin" element={<AdminPage />} />
+                      <Route path="/admin/car/new" element={<CarFormPage />} />
+                      <Route path="/admin/car/:carId" element={<CarFormPage />} />
                     </Routes>
                   </>
                 }
