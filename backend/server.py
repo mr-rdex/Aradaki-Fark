@@ -10,7 +10,7 @@ from datetime import datetime
 
 from models import (
     Car, CarCreate, CarUpdate,
-    User, UserCreate, UserLogin, UserInDB, UserUpdate,
+    User, UserCreate, UserLogin, UserInDB, UserUpdate, UserAdminUpdate,
     Review, ReviewCreate,
     ComparisonRequest, FavoriteComparison,
     ForumTopic, ForumTopicCreate, ForumComment, ForumCommentCreate
