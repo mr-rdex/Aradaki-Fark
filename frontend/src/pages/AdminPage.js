@@ -7,14 +7,19 @@ import { Plus, Edit, Trash2, Users, Car as CarIcon, BarChart3, Search, ChevronDo
 
 const AdminPage = () => {
   const navigate = useNavigate();
+  const toast = useToast();
   const { user, isAdmin, isAuthenticated, loading: authLoading } = useAuth();
   const [activeTab, setActiveTab] = useState('cars');
   const [cars, setCars] = useState([]);
   const [users, setUsers] = useState([]);
   const [stats, setStats] = useState({});
+  const [forumTopics, setForumTopics] = useState([]);
+  const [forumComments, setForumComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedBrands, setExpandedBrands] = useState({});
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showBadgeModal, setShowBadgeModal] = useState(false);
 
   useEffect(() => {
     if (!authLoading) {
