@@ -35,6 +35,10 @@ const ProfilePage = () => {
       setFavorites(favData);
       setComparisons(compData);
       setReviews(revData);
+      
+      // Load comparison history from localStorage
+      const history = getPopularComparisons();
+      setComparisonHistory(history);
     } catch (error) {
       console.error('Error fetching user data:', error);
     } finally {
