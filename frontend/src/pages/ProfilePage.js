@@ -103,6 +103,18 @@ const ProfilePage = () => {
               <span className="text-sm sm:text-base">Karşılaştırmalar ({comparisons.length})</span>
             </button>
             <button
+              onClick={() => setActiveTab('history')}
+              className={`flex-1 flex items-center justify-center py-4 px-4 sm:px-6 font-medium transition whitespace-nowrap ${
+                activeTab === 'history'
+                  ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50'
+              }`}
+              data-testid="history-tab"
+            >
+              <History className="w-5 h-5 mr-2 flex-shrink-0" />
+              <span className="text-sm sm:text-base">Karşılaştırma Geçmişi ({comparisonHistory.length})</span>
+            </button>
+            <button
               onClick={() => setActiveTab('reviews')}
               className={`flex-1 flex items-center justify-center py-4 px-4 sm:px-6 font-medium transition whitespace-nowrap ${
                 activeTab === 'reviews'
