@@ -590,6 +590,242 @@ async def get_stats(current_user: dict = Depends(get_current_admin)):
     }
 
 
+# ============= FORUM ROUTES =============
+@api_router.get("/forum/topics")
+async def get_forum_topics(
+    category: Optional[str] = None,
+    skip: int = Query(0, ge=0),
+    limit: int = Query(20, ge=1, le=100)
+):
+    """Get forum topics"""
+    query = {}
+    if category:
+        query['category'] = category
+    
+    topics = await forum_topics_collection.find(query, {"_id": 0})\
+        .sort("lastActivity", -1)\
+        .skip(skip)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    return topics
+
+
+@api_router.get("/forum/topics/{topic_id}")
+async def get_forum_topic(topic_id: str):
+    """Get single forum topic"""
+    topic = await forum_topics_collection.find_one({"topicId": topic_id}, {"_id": 0})
+    if not topic:
+        raise HTTPException(status_code=404, detail="Topic not found")
+    return topic
+
+
+@api_router.post("/forum/topics", response_model=ForumTopic)
+async def create_forum_topic(
+    topic_data: ForumTopicCreate,
+    current_user: dict = Depends(get_current_user)
+):
+    """Create a new forum topic"""
+    user = await users_collection.find_one({"userId": current_user['sub']}, {"_id": 0})
+    
+    topic = ForumTopic(
+        userId=current_user['sub'],
+        userName=user['fullName'],
+        userPhoto=user.get('profilePhoto'),
+        title=topic_data.title,
+        content=topic_data.content,
+        category=topic_data.category
+    )
+    
+    topic_dict = topic.model_dump()
+    topic_dict['createdAt'] = topic_dict['createdAt'].isoformat()
+    topic_dict['lastActivity'] = topic_dict['lastActivity'].isoformat()
+    
+    await forum_topics_collection.insert_one(topic_dict)
+    return topic
+
+
+@api_router.post("/forum/topics/{topic_id}/like")
+async def like_forum_topic(
+    topic_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Like/unlike a forum topic"""
+    topic = await forum_topics_collection.find_one({"topicId": topic_id})
+    if not topic:
+        raise HTTPException(status_code=404, detail="Topic not found")
+    
+    user_id = current_user['sub']
+    liked_by = topic.get('likedBy', [])
+    
+    if user_id in liked_by:
+        # Unlike
+        await forum_topics_collection.update_one(
+            {"topicId": topic_id},
+            {
+                "$pull": {"likedBy": user_id},
+                "$inc": {"likes": -1}
+            }
+        )
+        return {"message": "Topic unliked", "liked": False}
+    else:
+        # Like
+        await forum_topics_collection.update_one(
+            {"topicId": topic_id},
+            {
+                "$addToSet": {"likedBy": user_id},
+                "$inc": {"likes": 1}
+            }
+        )
+        return {"message": "Topic liked", "liked": True}
+
+
+@api_router.delete("/forum/topics/{topic_id}")
+async def delete_forum_topic(
+    topic_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Delete a forum topic (owner or admin only)"""
+    topic = await forum_topics_collection.find_one({"topicId": topic_id})
+    if not topic:
+        raise HTTPException(status_code=404, detail="Topic not found")
+    
+    # Check if user is owner or admin
+    if topic['userId'] != current_user['sub'] and current_user.get('role') != 'admin':
+        raise HTTPException(status_code=403, detail="Not authorized")
+    
+    # Delete topic and its comments
+    await forum_topics_collection.delete_one({"topicId": topic_id})
+    await forum_comments_collection.delete_many({"topicId": topic_id})
+    
+    return {"message": "Topic deleted successfully"}
+
+
+@api_router.get("/forum/topics/{topic_id}/comments")
+async def get_topic_comments(topic_id: str):
+    """Get comments for a topic"""
+    comments = await forum_comments_collection.find(
+        {"topicId": topic_id},
+        {"_id": 0}
+    ).sort("createdAt", 1).to_list(1000)
+    
+    return comments
+
+
+@api_router.post("/forum/topics/{topic_id}/comments", response_model=ForumComment)
+async def create_comment(
+    topic_id: str,
+    comment_data: ForumCommentCreate,
+    current_user: dict = Depends(get_current_user)
+):
+    """Add a comment to a topic"""
+    topic = await forum_topics_collection.find_one({"topicId": topic_id})
+    if not topic:
+        raise HTTPException(status_code=404, detail="Topic not found")
+    
+    user = await users_collection.find_one({"userId": current_user['sub']}, {"_id": 0})
+    
+    comment = ForumComment(
+        topicId=topic_id,
+        userId=current_user['sub'],
+        userName=user['fullName'],
+        userPhoto=user.get('profilePhoto'),
+        content=comment_data.content
+    )
+    
+    comment_dict = comment.model_dump()
+    comment_dict['createdAt'] = comment_dict['createdAt'].isoformat()
+    
+    await forum_comments_collection.insert_one(comment_dict)
+    
+    # Update topic comment count and last activity
+    await forum_topics_collection.update_one(
+        {"topicId": topic_id},
+        {
+            "$inc": {"commentCount": 1},
+            "$set": {"lastActivity": datetime.utcnow().isoformat()}
+        }
+    )
+    
+    return comment
+
+
+@api_router.put("/forum/comments/{comment_id}/solution")
+async def mark_solution(
+    comment_id: str,
+    current_user: dict = Depends(get_current_admin)
+):
+    """Mark/unmark a comment as solution (admin only)"""
+    comment = await forum_comments_collection.find_one({"commentId": comment_id})
+    if not comment:
+        raise HTTPException(status_code=404, detail="Comment not found")
+    
+    # Toggle solution status
+    new_status = not comment.get('isSolution', False)
+    
+    # Remove solution from other comments in the same topic
+    if new_status:
+        await forum_comments_collection.update_many(
+            {"topicId": comment['topicId']},
+            {"$set": {"isSolution": False}}
+        )
+    
+    await forum_comments_collection.update_one(
+        {"commentId": comment_id},
+        {"$set": {"isSolution": new_status}}
+    )
+    
+    return {"message": "Solution status updated", "isSolution": new_status}
+
+
+@api_router.delete("/forum/comments/{comment_id}")
+async def delete_comment(
+    comment_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Delete a comment (owner or admin only)"""
+    comment = await forum_comments_collection.find_one({"commentId": comment_id})
+    if not comment:
+        raise HTTPException(status_code=404, detail="Comment not found")
+    
+    # Check if user is owner or admin
+    if comment['userId'] != current_user['sub'] and current_user.get('role') != 'admin':
+        raise HTTPException(status_code=403, detail="Not authorized")
+    
+    await forum_comments_collection.delete_one({"commentId": comment_id})
+    
+    # Update topic comment count
+    await forum_topics_collection.update_one(
+        {"topicId": comment['topicId']},
+        {"$inc": {"commentCount": -1}}
+    )
+    
+    return {"message": "Comment deleted successfully"}
+
+
+# ============= PROFILE ROUTES =============
+@api_router.put("/profile")
+async def update_profile(
+    profile_data: UserUpdate,
+    current_user: dict = Depends(get_current_user)
+):
+    """Update user profile"""
+    update_data = {k: v for k, v in profile_data.model_dump().items() if v is not None}
+    
+    if not update_data:
+        raise HTTPException(status_code=400, detail="No data to update")
+    
+    result = await users_collection.update_one(
+        {"userId": current_user['sub']},
+        {"$set": update_data}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return {"message": "Profile updated successfully"}
+
+
 # ============= ROOT ROUTE =============
 @api_router.get("/")
 async def root():
