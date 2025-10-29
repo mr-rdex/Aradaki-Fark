@@ -140,7 +140,7 @@ async def create_car(car_data: CarCreate, current_user: dict = Depends(get_curre
 @api_router.get("/cars", response_model=List[Car])
 async def get_cars(
     skip: int = Query(0, ge=0),
-    limit: int = Query(50, ge=1, le=100),
+    limit: int = Query(50, ge=1, le=500),
     marka: Optional[str] = None,
     year: Optional[int] = None,
     fuelType: Optional[str] = None
