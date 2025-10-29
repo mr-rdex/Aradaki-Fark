@@ -166,7 +166,7 @@ const ComparisonTool = () => {
           </div>
           
           {showDropdown2 && (
-            <div className="absolute z-50 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+            <div className="absolute z-50 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-xl max-h-96 overflow-y-auto">
               {getFilteredCars(search2, car1).length === 0 ? (
                 <div className="px-4 py-3 text-gray-500 text-sm">Araç bulunamadı</div>
               ) : (
