@@ -199,3 +199,30 @@ agent_communication:
       
       Backend APIs are ready to support PDF comparison report generation.
       The frontend PDF feature can safely use these endpoints for data retrieval.
+  - agent: "main"
+    message: |
+      🎯 YENİ ÖZELLİKLER EKLEME AŞAMASI:
+      
+      ✅ 1. KARŞILAŞTIRMA GEÇMİŞİ:
+      - ProfilePage'e "Karşılaştırma Geçmişi" tab'ı eklendi
+      - localStorage'dan geçmiş karşılaştırmalar gösteriliyor
+      - Her karşılaştırma için: araç isimleri, kaç kez karşılaştırıldı, son karşılaştırma tarihi
+      - "Tekrar Karşılaştır" butonu eklendi
+      
+      ✅ 2. GELİŞMİŞ FİLTRELER İYİLEŞTİRMESİ:
+      - Araç Tipi filtresi eklendi (Sedan, SUV, Hatchback, Coupe, Station Wagon, MPV, Pickup)
+      - Yakıt Tüketimi (Ekonomi) aralığı eklendi (0-20 L/100km)
+      - Bagaj Kapasitesi aralığı eklendi (0-1000 L)
+      - 0-100 Hızlanma aralığı eklendi (0-20 saniye)
+      
+      ✅ 3. ADMİN PANELİ İYİLEŞTİRMESİ:
+      - CarFormPage.js sayfası oluşturuldu
+      - Yeni araç ekleme formu tamamlandı
+      - Araç düzenleme formu tamamlandı
+      - Tüm araç özellikleri düzenlenebiliyor
+      - Fotoğraf URL önizlemesi eklendi
+      - Form validasyonu ve toast bildirimleri eklendi
+      - App.js'e route'lar eklendi: /admin/car/new ve /admin/car/:carId
+      - AdminPage'de "Düzenle" butonu doğru sayfaya yönlendiriyor
+      
+      Şimdi manuel test için hazır.
