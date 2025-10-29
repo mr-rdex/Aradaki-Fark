@@ -10,6 +10,7 @@ import ComparePage from './pages/ComparePage';
 import AllCarsPage from './pages/AllCarsPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminPage from './pages/AdminPage';
+import CarFormPage from './pages/CarFormPage';
 import PopularComparisonsPage from './pages/PopularComparisonsPage';
 import './App.css';
 
