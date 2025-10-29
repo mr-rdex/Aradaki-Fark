@@ -40,9 +40,20 @@ const RegisterPage = () => {
       return;
     }
 
+    if (!formData.kvkkAccepted) {
+      setError('KVKK metnini kabul etmelisiniz');
+      return;
+    }
+
     setLoading(true);
 
-    const result = await register(formData.email, formData.password, formData.fullName);
+    const result = await register(
+      formData.email, 
+      formData.password, 
+      formData.fullName,
+      formData.kvkkAccepted,
+      formData.emailNotifications
+    );
     
     if (result.success) {
       navigate('/');
