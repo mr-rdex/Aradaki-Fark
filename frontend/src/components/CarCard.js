@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { favoritesAPI } from '../api';
 
-const CarCard = ({ car, compact = false }) => {
+const CarCard = ({ car, compact = false, showStat = null }) => {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
@@ -38,6 +38,28 @@ const CarCard = ({ car, compact = false }) => {
     }).format(price);
   };
 
+  // Kategoriye göre özel bilgi göster
+  const getStatDisplay = () => {
+    if (!showStat) return { label: 'Beygir Gücü', value: `${car.CarHorsePower} HP` };
+    
+    switch (showStat) {
+      case 'acceleration':
+        return { label: 'Hızlanma', value: `${car.CarAcceleration}s` };
+      case 'economy':
+        return { label: 'Yakıt', value: `${car.CarEconomy}L/100km` };
+      case 'baggage':
+        return { label: 'Bagaj', value: `${car.CarBaggageLT}L` };
+      case 'horsepower':
+        return { label: 'Beygir', value: `${car.CarHorsePower} HP` };
+      case 'price':
+        return { label: 'Fiyat', value: car.CarPrice ? `${(car.CarPrice / 1000).toFixed(0)}K TL` : '-' };
+      default:
+        return { label: 'Beygir Gücü', value: `${car.CarHorsePower} HP` };
+    }
+  };
+
+  const stat = getStatDisplay();
+
   if (compact) {
     return (
       <div
@@ -56,7 +78,10 @@ const CarCard = ({ car, compact = false }) => {
           <h3 className="font-bold text-sm text-gray-900">{car.ArabaMarka}</h3>
           <p className="text-xs text-gray-600 mb-2">{car.CarModel}</p>
           <div className="flex items-center justify-between text-xs">
-            <span className="text-blue-600 font-semibold">{car.CarHorsePower} HP</span>
+            <div>
+              <span className="text-gray-500 block">{stat.label}</span>
+              <span className="text-blue-600 font-semibold">{stat.value}</span>
+            </div>
             {car.averageRating > 0 && (
               <div className="flex items-center">
                 <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
