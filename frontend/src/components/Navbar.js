@@ -117,6 +117,9 @@ const Navbar = () => {
             <Link to="/compare" className="text-gray-700 hover:text-blue-600 font-medium" data-testid="nav-compare-link">
               Karşılaştır
             </Link>
+            <Link to="/popular-comparisons" className="text-gray-700 hover:text-blue-600 font-medium" data-testid="nav-popular-link">
+              Popüler
+            </Link>
             
             {user ? (
               <div className="flex items-center space-x-4">
