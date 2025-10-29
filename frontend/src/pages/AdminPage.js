@@ -311,6 +311,7 @@ const AdminPage = () => {
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Ad Soyad</th>
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">E-posta</th>
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Rol</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Badge</th>
                         <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
                       </tr>
                     </thead>
@@ -328,7 +329,24 @@ const AdminPage = () => {
                               {u.role === 'admin' ? 'Admin' : 'Kullanıcı'}
                             </span>
                           </td>
-                          <td className="px-4 py-3 text-sm text-right">
+                          <td className="px-4 py-3 text-sm">
+                            {u.badges && u.badges.length > 0 ? (
+                              <span className="text-xs text-gray-600">{u.badges.length} badge</span>
+                            ) : (
+                              <span className="text-xs text-gray-400">Badge yok</span>
+                            )}
+                          </td>
+                          <td className="px-4 py-3 text-sm text-right space-x-2">
+                            <button
+                              onClick={() => {
+                                setSelectedUser(u);
+                                setShowBadgeModal(true);
+                              }}
+                              className="text-blue-600 hover:text-blue-800 px-2 py-1"
+                              title="Badge Yönet"
+                            >
+                              <Award className="w-5 h-5 inline" />
+                            </button>
                             {u.userId !== user?.userId && (
                               <select
                                 value={u.role}
@@ -347,9 +365,130 @@ const AdminPage = () => {
                 </div>
               </div>
             )}
+
+            {/* Forum Tab */}
+            {activeTab === 'forum' && (
+              <div className="space-y-6">
+                {/* Forum Topics */}
+                <div>
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">Forum Konuları ({forumTopics.length})</h2>
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Başlık</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Kategori</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Kullanıcı</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Yorumlar</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Beğeni</th>
+                          <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {forumTopics.map((topic) => (
+                          <tr key={topic.topicId} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-sm text-gray-900">{topic.title}</td>
+                            <td className="px-4 py-3 text-sm">
+                              <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
+                                {topic.category}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3 text-sm text-gray-900">{topic.userName}</td>
+                            <td className="px-4 py-3 text-sm text-gray-600">{topic.commentCount}</td>
+                            <td className="px-4 py-3 text-sm text-gray-600">{topic.likes}</td>
+                            <td className="px-4 py-3 text-sm text-right space-x-2">
+                              <button
+                                onClick={() => navigate(`/forum/${topic.topicId}`)}
+                                className="text-blue-600 hover:text-blue-800 text-xs"
+                              >
+                                Görüntüle
+                              </button>
+                              <button
+                                onClick={async () => {
+                                  if (window.confirm('Bu konuyu silmek istediğinize emin misiniz?')) {
+                                    try {
+                                      await forumAPI.deleteTopic(topic.topicId);
+                                      toast.success('Konu silindi');
+                                      fetchAdminData();
+                                    } catch (error) {
+                                      toast.error('Konu silinemedi');
+                                    }
+                                  }
+                                }}
+                                className="text-red-600 hover:text-red-800 text-xs"
+                              >
+                                Sil
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Forum Comments */}
+                <div>
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">Forum Yorumları ({forumComments.length})</h2>
+                  <div className="space-y-3">
+                    {forumComments.slice(0, 20).map((comment) => (
+                      <div key={comment.commentId} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <span className="font-medium text-gray-900">{comment.userName}</span>
+                            <span className="text-xs text-gray-500 ml-2">
+                              {new Date(comment.createdAt).toLocaleDateString('tr-TR')}
+                            </span>
+                          </div>
+                          <button
+                            onClick={async () => {
+                              if (window.confirm('Bu yorumu silmek istediğinize emin misiniz?')) {
+                                try {
+                                  await forumAPI.deleteComment(comment.commentId);
+                                  toast.success('Yorum silindi');
+                                  fetchAdminData();
+                                } catch (error) {
+                                  toast.error('Yorum silinemedi');
+                                }
+                              }
+                            }}
+                            className="text-red-600 hover:text-red-800 text-xs"
+                          >
+                            Sil
+                          </button>
+                        </div>
+                        <p className="text-sm text-gray-700">{comment.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Badge Management Modal */}
+      {showBadgeModal && selectedUser && (
+        <BadgeModal
+          user={selectedUser}
+          onClose={() => {
+            setShowBadgeModal(false);
+            setSelectedUser(null);
+          }}
+          onSave={async (badges, coverPhoto) => {
+            try {
+              await adminUserAPI.updateUserProfile(selectedUser.userId, coverPhoto, badges);
+              toast.success('Kullanıcı profili güncellendi');
+              setShowBadgeModal(false);
+              setSelectedUser(null);
+              fetchAdminData();
+            } catch (error) {
+              toast.error('Profil güncellenemedi');
+            }
+          }}
+        />
+      )}
     </div>
   );
 };
