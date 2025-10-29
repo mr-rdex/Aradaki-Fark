@@ -153,3 +153,44 @@ class FavoriteComparison(BaseModel):
     car2Id: str
     car1Name: str
     car2Name: str
+
+
+# ============= FORUM MODELS =============
+class ForumTopic(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    topicId: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    userId: str
+    userName: str
+    userPhoto: Optional[str] = None
+    title: str
+    content: str
+    category: str  # Genel, Teknik, İnceleme, Satın Alma
+    likes: int = 0
+    likedBy: List[str] = []
+    commentCount: int = 0
+    createdAt: datetime = Field(default_factory=datetime.utcnow)
+    lastActivity: datetime = Field(default_factory=datetime.utcnow)
+
+
+class ForumTopicCreate(BaseModel):
+    title: str = Field(..., min_length=5, max_length=200)
+    content: str = Field(..., min_length=10)
+    category: str
+
+
+class ForumComment(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    commentId: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    topicId: str
+    userId: str
+    userName: str
+    userPhoto: Optional[str] = None
+    content: str
+    isSolution: bool = False
+    createdAt: datetime = Field(default_factory=datetime.utcnow)
+
+
+class ForumCommentCreate(BaseModel):
+    content: str = Field(..., min_length=1)
