@@ -148,9 +148,20 @@ const ComparePage = () => {
       </div>
 
       <div className="container mx-auto px-4 mt-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center" data-testid="compare-title">
-          Araç Karşılaştırma
-        </h1>
+        <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900" data-testid="compare-title">
+            Araç Karşılaştırma
+          </h1>
+          <button
+            onClick={handleSaveComparison}
+            disabled={saving}
+            className="flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 disabled:bg-gray-300 transition font-semibold"
+            data-testid="save-comparison-button"
+          >
+            <Save className="w-5 h-5 mr-2" />
+            {saving ? 'Kaydediliyor...' : 'Karşılaştırmayı Kaydet'}
+          </button>
+        </div>
 
         {/* Images Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
