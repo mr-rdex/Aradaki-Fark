@@ -32,6 +32,8 @@ function App() {
                     <Navbar />
                     <Routes>
                       <Route path="/" element={<HomePage />} />
+                      <Route path="/login" element={<LoginPage />} />
+                      <Route path="/register" element={<RegisterPage />} />
                       <Route path="/cars" element={<AllCarsPage />} />
                       <Route path="/car/:id" element={<CarDetailPage />} />
                       <Route path="/compare" element={<ComparePage />} />
@@ -40,6 +42,8 @@ function App() {
                       <Route path="/admin" element={<AdminPage />} />
                       <Route path="/admin/car/new" element={<CarFormPage />} />
                       <Route path="/admin/car/:carId" element={<CarFormPage />} />
+                      <Route path="/forum" element={<ForumPage />} />
+                      <Route path="/forum/:topicId" element={<ForumTopicPage />} />
                     </Routes>
                   </>
                 }
