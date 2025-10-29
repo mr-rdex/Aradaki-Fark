@@ -33,11 +33,16 @@ const AdminPage = () => {
         adminAPI.getStats()
       ]);
 
+      console.log('Cars data:', carsData);
+      console.log('Users data:', usersData);
+      console.log('Stats data:', statsData);
+
       setCars(carsData);
       setUsers(usersData);
       setStats(statsData);
     } catch (error) {
       console.error('Error fetching admin data:', error);
+      console.error('Error response:', error.response?.data);
     } finally {
       setLoading(false);
     }
