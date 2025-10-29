@@ -625,6 +625,59 @@ async def get_stats(current_user: dict = Depends(get_current_admin)):
     }
 
 
+@api_router.put("/admin/users/{user_id}/profile")
+async def admin_update_user_profile(
+    user_id: str,
+    profile_data: UserAdminUpdate,
+    current_user: dict = Depends(get_current_admin)
+):
+    """Admin update user profile (cover photo, badges)"""
+    update_data = {}
+    
+    if profile_data.coverPhoto is not None:
+        update_data['coverPhoto'] = profile_data.coverPhoto
+    
+    if profile_data.badges is not None:
+        update_data['badges'] = profile_data.badges
+    
+    if not update_data:
+        raise HTTPException(status_code=400, detail="No data to update")
+    
+    result = await users_collection.update_one(
+        {"userId": user_id},
+        {"$set": update_data}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return {"message": "User profile updated successfully"}
+
+
+@api_router.get("/admin/forum/topics")
+async def admin_get_all_topics(
+    current_user: dict = Depends(get_current_admin)
+):
+    """Get all forum topics (admin only)"""
+    topics = await forum_topics_collection.find({}, {"_id": 0})\
+        .sort("createdAt", -1)\
+        .to_list(1000)
+    
+    return topics
+
+
+@api_router.get("/admin/forum/comments")
+async def admin_get_all_comments(
+    current_user: dict = Depends(get_current_admin)
+):
+    """Get all forum comments (admin only)"""
+    comments = await forum_comments_collection.find({}, {"_id": 0})\
+        .sort("createdAt", -1)\
+        .to_list(1000)
+    
+    return comments
+
+
 # ============= FORUM ROUTES =============
 @api_router.get("/forum/topics")
 async def get_forum_topics(
