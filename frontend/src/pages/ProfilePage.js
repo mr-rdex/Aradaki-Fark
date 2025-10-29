@@ -71,42 +71,42 @@ const ProfilePage = () => {
 
         {/* Tabs */}
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="flex border-b">
+          <div className="flex flex-col sm:flex-row border-b overflow-x-auto">
             <button
               onClick={() => setActiveTab('favorites')}
-              className={`flex-1 flex items-center justify-center py-4 px-6 font-medium transition ${
+              className={`flex-1 flex items-center justify-center py-4 px-4 sm:px-6 font-medium transition whitespace-nowrap ${
                 activeTab === 'favorites'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
               data-testid="favorites-tab"
             >
-              <Heart className="w-5 h-5 mr-2" />
-              Favori Araçlar ({favorites.length})
+              <Heart className="w-5 h-5 mr-2 flex-shrink-0" />
+              <span className="text-sm sm:text-base">Favori Araçlar ({favorites.length})</span>
             </button>
             <button
               onClick={() => setActiveTab('comparisons')}
-              className={`flex-1 flex items-center justify-center py-4 px-6 font-medium transition ${
+              className={`flex-1 flex items-center justify-center py-4 px-4 sm:px-6 font-medium transition whitespace-nowrap ${
                 activeTab === 'comparisons'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
               data-testid="comparisons-tab"
             >
-              <GitCompare className="w-5 h-5 mr-2" />
-              Karşılaştırmalar ({comparisons.length})
+              <GitCompare className="w-5 h-5 mr-2 flex-shrink-0" />
+              <span className="text-sm sm:text-base">Karşılaştırmalar ({comparisons.length})</span>
             </button>
             <button
               onClick={() => setActiveTab('reviews')}
-              className={`flex-1 flex items-center justify-center py-4 px-6 font-medium transition ${
+              className={`flex-1 flex items-center justify-center py-4 px-4 sm:px-6 font-medium transition whitespace-nowrap ${
                 activeTab === 'reviews'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
               data-testid="reviews-tab"
             >
-              <MessageSquare className="w-5 h-5 mr-2" />
-              Yorumlarım ({reviews.length})
+              <MessageSquare className="w-5 h-5 mr-2 flex-shrink-0" />
+              <span className="text-sm sm:text-base">Yorumlarım ({reviews.length})</span>
             </button>
           </div>
 
