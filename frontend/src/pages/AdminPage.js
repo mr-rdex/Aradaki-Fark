@@ -35,10 +35,12 @@ const AdminPage = () => {
 
   const fetchAdminData = async () => {
     try {
-      const [carsData, usersData, statsData] = await Promise.all([
+      const [carsData, usersData, statsData, topicsData, commentsData] = await Promise.all([
         carAPI.getAll({ limit: 200 }),
         adminAPI.getUsers(),
-        adminAPI.getStats()
+        adminAPI.getStats(),
+        adminUserAPI.getForumTopics(),
+        adminUserAPI.getForumComments()
       ]);
 
       console.log('Cars data:', carsData);
@@ -48,6 +50,8 @@ const AdminPage = () => {
       setCars(carsData);
       setUsers(usersData);
       setStats(statsData);
+      setForumTopics(topicsData);
+      setForumComments(commentsData);
     } catch (error) {
       console.error('Error fetching admin data:', error);
       console.error('Error response:', error.response?.data);
