@@ -70,6 +70,34 @@ const AdminPage = () => {
     }
   };
 
+  const toggleBrand = (brand) => {
+    setExpandedBrands(prev => ({
+      ...prev,
+      [brand]: !prev[brand]
+    }));
+  };
+
+  const groupCarsByBrand = () => {
+    const filtered = cars.filter(car => 
+      car.ArabaMarka.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      car.CarModel.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const grouped = filtered.reduce((acc, car) => {
+      const brand = car.ArabaMarka;
+      if (!acc[brand]) {
+        acc[brand] = [];
+      }
+      acc[brand].push(car);
+      return acc;
+    }, {});
+
+    return Object.keys(grouped).sort().map(brand => ({
+      brand,
+      cars: grouped[brand]
+    }));
+  };
+
   if (authLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
