@@ -148,6 +148,43 @@ const RegisterPage = () => {
               />
             </div>
 
+            {/* KVKK Checkbox */}
+            <div className="space-y-3">
+              <label className="flex items-start">
+                <input
+                  type="checkbox"
+                  name="kvkkAccepted"
+                  checked={formData.kvkkAccepted}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <span className="text-sm text-gray-700">
+                  <button
+                    type="button"
+                    onClick={() => setShowKvkkModal(true)}
+                    className="text-blue-600 hover:underline font-medium"
+                  >
+                    KVKK Aydınlatma Metni
+                  </button>
+                  'ni okudum ve kabul ediyorum <span className="text-red-500">*</span>
+                </span>
+              </label>
+
+              <label className="flex items-start">
+                <input
+                  type="checkbox"
+                  name="emailNotifications"
+                  checked={formData.emailNotifications}
+                  onChange={handleChange}
+                  className="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <span className="text-sm text-gray-700">
+                  E-posta ile bildirim almak istiyorum (Yeni konu yorumları, güncellemeler)
+                </span>
+              </label>
+            </div>
+
             <button
               type="submit"
               disabled={loading}
