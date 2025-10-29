@@ -54,7 +54,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 pb-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6" data-testid="hero-title">
@@ -63,7 +63,7 @@ const HomePage = () => {
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
               Araçları karşılaştırın, doğru seçimi yapın
             </p>
-            <div className="bg-white rounded-lg shadow-xl max-w-4xl mx-auto overflow-hidden">
+            <div className="bg-white rounded-lg shadow-xl max-w-4xl mx-auto">
               <ComparisonTool />
             </div>
           </div>
