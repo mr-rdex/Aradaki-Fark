@@ -211,6 +211,84 @@ const RegisterPage = () => {
           </div>
         </div>
       </div>
+
+      {/* KVKK Modal */}
+      {showKvkkModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6 border-b sticky top-0 bg-white">
+              <h2 className="text-2xl font-bold text-gray-900">KVKK Aydınlatma Metni</h2>
+            </div>
+            
+            <div className="p-6 space-y-4 text-gray-700 text-sm">
+              <div className="flex items-start space-x-2 bg-blue-50 p-4 rounded-lg">
+                <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <p className="text-blue-900">
+                  6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verilerinizin işlenmesine ilişkin aşağıdaki bilgilendirmeyi yapıyoruz.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">1. Veri Sorumlusu</h3>
+                <p>Aradaki Fark platformu olarak, kişisel verilerinizin işlenmesinden sorumlu tarafız.</p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">2. Toplanan Kişisel Veriler</h3>
+                <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li>Ad Soyad</li>
+                  <li>E-posta adresi</li>
+                  <li>Profil bilgileri (bio, konum, profil fotoğrafı)</li>
+                  <li>Kullanım verileri (yorumlar, beğeniler, favori araçlar)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">3. Kişisel Verilerin İşlenme Amaçları</h3>
+                <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li>Platform hizmetlerinin sunulması</li>
+                  <li>Kullanıcı hesabının yönetimi</li>
+                  <li>İletişim ve bilgilendirme</li>
+                  <li>Platform güvenliğinin sağlanması</li>
+                  <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">4. Kişisel Verilerin Aktarılması</h3>
+                <p>Kişisel verileriniz, KVKK'da öngörülen temel ilkelere uygun olarak ve yasal yükümlülüklerimiz çerçevesinde üçüncü kişilere aktarılabilir.</p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">5. Haklarınız</h3>
+                <p>KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:</p>
+                <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                  <li>İşlenmişse bilgi talep etme</li>
+                  <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+                  <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+                  <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
+                  <li>Silinmesini veya yok edilmesini isteme</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">6. İletişim</h3>
+                <p>Sorularınız için bizimle iletişime geçebilirsiniz: admin@aradakifark.com</p>
+              </div>
+            </div>
+
+            <div className="p-6 border-t bg-gray-50">
+              <button
+                onClick={() => setShowKvkkModal(false)}
+                className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition font-semibold"
+              >
+                Anladım
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
