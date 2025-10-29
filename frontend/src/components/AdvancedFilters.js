@@ -106,32 +106,31 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md mb-6">
-      {/* Mobile Toggle Button */}
+      {/* Toggle Button for All Screens */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 lg:hidden"
+        className="w-full flex items-center justify-between p-4"
       >
         <div className="flex items-center">
           <Filter className="w-5 h-5 text-gray-600 mr-2" />
           <span className="font-semibold text-gray-900">Gelişmiş Filtreler</span>
         </div>
-        {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-      </button>
-
-      {/* Desktop Header */}
-      <div className="hidden lg:flex items-center justify-between p-4 border-b">
-        <div className="flex items-center">
-          <Filter className="w-5 h-5 text-gray-600 mr-2" />
-          <span className="font-semibold text-gray-900">Gelişmiş Filtreler</span>
+        <div className="flex items-center space-x-2">
+          {isOpen && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                clearAllFilters();
+              }}
+              className="flex items-center text-sm text-blue-600 hover:text-blue-700 mr-2"
+            >
+              <X className="w-4 h-4 mr-1" />
+              Temizle
+            </button>
+          )}
+          {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
         </div>
-        <button
-          onClick={clearAllFilters}
-          className="flex items-center text-sm text-blue-600 hover:text-blue-700"
-        >
-          <X className="w-4 h-4 mr-1" />
-          Temizle
-        </button>
-      </div>
+      </button>
 
       {/* Filters Content */}
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block p-4 space-y-6`}>
