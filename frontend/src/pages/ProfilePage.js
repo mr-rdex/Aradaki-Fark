@@ -206,6 +206,52 @@ const ProfilePage = () => {
                 )}
               </div>
             )}
+
+            {/* Comparison History Tab */}
+            {activeTab === 'history' && (
+              <div>
+                {comparisonHistory.length === 0 ? (
+                  <p className="text-gray-500 text-center py-8">
+                    Henüz karşılaştırma geçmişi yok
+                  </p>
+                ) : (
+                  <div className="space-y-4">
+                    {comparisonHistory.map((comp, index) => (
+                      <div
+                        key={index}
+                        className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-3 mb-2">
+                              <p className="font-semibold text-gray-900">{comp.car1Name}</p>
+                              <span className="text-gray-400">vs</span>
+                              <p className="font-semibold text-gray-900">{comp.car2Name}</p>
+                            </div>
+                            <div className="flex items-center space-x-4 text-sm text-gray-600">
+                              <span>{comp.count} kez karşılaştırıldı</span>
+                              <span>•</span>
+                              <span>Son: {new Date(comp.lastCompared).toLocaleDateString('tr-TR', { 
+                                day: 'numeric', 
+                                month: 'long',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })}</span>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => navigate(`/compare?car1=${comp.car1Id}&car2=${comp.car2Id}`)}
+                            className="ml-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition text-sm font-medium"
+                          >
+                            Tekrar Karşılaştır
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
