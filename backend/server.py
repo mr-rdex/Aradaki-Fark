@@ -58,13 +58,19 @@ async def register(user_data: UserCreate):
     if existing_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     
+    # Check KVKK acceptance
+    if not user_data.kvkkAccepted:
+        raise HTTPException(status_code=400, detail="KVKK must be accepted")
+    
     # Create user
     hashed_password = get_password_hash(user_data.password)
     user = UserInDB(
         email=user_data.email,
         fullName=user_data.fullName,
         hashedPassword=hashed_password,
-        role="user"
+        role="user",
+        kvkkAccepted=user_data.kvkkAccepted,
+        emailNotifications=user_data.emailNotifications
     )
     
     user_dict = user.model_dump()
