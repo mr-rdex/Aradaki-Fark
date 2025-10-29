@@ -90,6 +90,11 @@ class User(BaseModel):
     role: str = "user"  # user or admin
     favorites: List[str] = []
     favoriteComparisons: List[dict] = []
+    bio: Optional[str] = None
+    location: Optional[str] = None
+    profilePhoto: Optional[str] = None
+    kvkkAccepted: bool = False
+    emailNotifications: bool = True
     createdAt: datetime = Field(default_factory=datetime.utcnow)
 
 
@@ -97,6 +102,16 @@ class UserCreate(BaseModel):
     email: EmailStr
     password: str
     fullName: str
+    kvkkAccepted: bool = True
+    emailNotifications: bool = True
+
+
+class UserUpdate(BaseModel):
+    fullName: Optional[str] = None
+    bio: Optional[str] = None
+    location: Optional[str] = None
+    profilePhoto: Optional[str] = None
+    emailNotifications: Optional[bool] = None
 
 
 class UserLogin(BaseModel):
