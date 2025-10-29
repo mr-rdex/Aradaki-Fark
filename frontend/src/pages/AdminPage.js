@@ -175,9 +175,9 @@ const AdminPage = () => {
                           </td>
                           <td className="px-4 py-3 text-sm text-right">
                             <button
-                              onClick={() => navigate(`/car/${car.CarID}`)}
+                              onClick={() => navigate(`/admin/car/${car.CarID}`)}
                               className="text-blue-600 hover:text-blue-800 mr-3"
-                              data-testid={`view-car-${car.CarID}`}
+                              data-testid={`edit-car-${car.CarID}`}
                             >
                               <Edit className="w-5 h-5 inline" />
                             </button>
