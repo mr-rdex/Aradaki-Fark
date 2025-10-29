@@ -332,7 +332,10 @@ async def delete_car(car_id: str, current_user: dict = Depends(get_current_admin
 
 # ============= COMPARISON ROUTES =============
 @api_router.post("/compare")
-async def compare_cars(comparison: ComparisonRequest):
+async def compare_cars(
+    comparison: ComparisonRequest,
+    current_user: dict = Depends(get_current_user_optional)
+):
     """Compare two cars"""
     car1 = await cars_collection.find_one({"CarID": comparison.car1Id}, {"_id": 0})
     car2 = await cars_collection.find_one({"CarID": comparison.car2Id}, {"_id": 0})
@@ -345,10 +348,36 @@ async def compare_cars(comparison: ComparisonRequest):
     if isinstance(car2.get('createdAt'), str):
         car2['createdAt'] = datetime.fromisoformat(car2['createdAt'])
     
+    # Save to comparison history if user is logged in
+    if current_user:
+        user_id = current_user['sub']
+        comparison_entry = {
+            "car1Id": comparison.car1Id,
+            "car2Id": comparison.car2Id,
+            "car1Name": f"{car1['ArabaMarka']} {car1['CarModel']}",
+            "car2Name": f"{car2['ArabaMarka']} {car2['CarModel']}",
+            "comparedAt": datetime.utcnow().isoformat()
+        }
+        
+        await users_collection.update_one(
+            {"userId": user_id},
+            {"$push": {"comparisonHistory": {"$each": [comparison_entry], "$slice": -20}}}
+        )
+    
     return {
         "car1": car1,
         "car2": car2
     }
+
+
+@api_router.get("/comparison-history")
+async def get_comparison_history(current_user: dict = Depends(get_current_user)):
+    """Get user's comparison history"""
+    user = await users_collection.find_one({"userId": current_user['sub']}, {"_id": 0})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return user.get('comparisonHistory', [])
 
 
 # ============= FAVORITES ROUTES =============
