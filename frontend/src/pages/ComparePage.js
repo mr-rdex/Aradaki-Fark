@@ -10,10 +10,13 @@ import ComparisonTool from '../components/ComparisonTool';
 const ComparePage = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  const toast = useToast();
   
   const [car1, setCar1] = useState(null);
   const [car2, setCar2] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     const car1Id = searchParams.get('car1');
@@ -31,10 +34,41 @@ const ComparePage = () => {
       const data = await comparisonAPI.compare(car1Id, car2Id);
       setCar1(data.car1);
       setCar2(data.car2);
+      
+      // Track comparison
+      trackComparison(
+        data.car1.CarID,
+        data.car2.CarID,
+        `${data.car1.ArabaMarka} ${data.car1.CarModel}`,
+        `${data.car2.ArabaMarka} ${data.car2.CarModel}`
+      );
     } catch (error) {
       console.error('Error fetching comparison:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSaveComparison = async () => {
+    if (!isAuthenticated) {
+      toast.info('Karşılaştırma kaydetmek için giriş yapmalısınız');
+      navigate('/login');
+      return;
+    }
+
+    setSaving(true);
+    try {
+      await favoritesAPI.addComparison(
+        car1.CarID,
+        car2.CarID,
+        `${car1.ArabaMarka} ${car1.CarModel}`,
+        `${car2.ArabaMarka} ${car2.CarModel}`
+      );
+      toast.success('Karşılaştırma favorilere eklendi!');
+    } catch (error) {
+      toast.error('Karşılaştırma kaydedilemedi');
+    } finally {
+      setSaving(false);
     }
   };
 
