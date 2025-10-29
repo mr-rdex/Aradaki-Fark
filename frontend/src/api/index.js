@@ -186,10 +186,9 @@ export const adminAPI = {
 
   updateUserRole: async (userId, role) => {
     const response = await axios.put(
-      `${API}/admin/users/${userId}/role`,
-      null,
+      `${API}/admin/users/${userId}/role?role=${role}`,
+      {},
       {
-        params: { role },
         headers: getAuthHeader()
       }
     );
