@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Car } from 'lucide-react';
+import { Car, Info } from 'lucide-react';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -10,10 +10,13 @@ const RegisterPage = () => {
     fullName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    kvkkAccepted: false,
+    emailNotifications: true
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showKvkkModal, setShowKvkkModal] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
