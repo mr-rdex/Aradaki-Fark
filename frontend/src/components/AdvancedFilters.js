@@ -362,6 +362,121 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
             ))}
           </div>
         </div>
+
+        {/* Car Types */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-3">
+            Araç Tipi
+          </label>
+          <div className="flex flex-wrap gap-2">
+            {carTypes.map((type) => (
+              <button
+                key={type}
+                onClick={() => handleCarTypeToggle(type)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                  filters.carTypes.includes(type)
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Economy Range */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-3">
+            Yakıt Tüketimi (L/100km)
+          </label>
+          <div className="space-y-2">
+            <input
+              type="range"
+              min="0"
+              max="20"
+              step="0.5"
+              value={filters.economyRange[0]}
+              onChange={(e) => handleEconomyChange(e.target.value, 0)}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <input
+              type="range"
+              min="0"
+              max="20"
+              step="0.5"
+              value={filters.economyRange[1]}
+              onChange={(e) => handleEconomyChange(e.target.value, 1)}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <div className="flex justify-between text-sm text-gray-600">
+              <span>{filters.economyRange[0]} L/100km</span>
+              <span>{filters.economyRange[1]} L/100km</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Baggage Range */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-3">
+            Bagaj Kapasitesi (Litre)
+          </label>
+          <div className="space-y-2">
+            <input
+              type="range"
+              min="0"
+              max="1000"
+              step="50"
+              value={filters.baggageRange[0]}
+              onChange={(e) => handleBaggageChange(e.target.value, 0)}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <input
+              type="range"
+              min="0"
+              max="1000"
+              step="50"
+              value={filters.baggageRange[1]}
+              onChange={(e) => handleBaggageChange(e.target.value, 1)}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <div className="flex justify-between text-sm text-gray-600">
+              <span>{filters.baggageRange[0]} L</span>
+              <span>{filters.baggageRange[1]} L</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Acceleration Range */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-3">
+            0-100 Hızlanma (Saniye)
+          </label>
+          <div className="space-y-2">
+            <input
+              type="range"
+              min="0"
+              max="20"
+              step="0.5"
+              value={filters.accelerationRange[0]}
+              onChange={(e) => handleAccelerationChange(e.target.value, 0)}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <input
+              type="range"
+              min="0"
+              max="20"
+              step="0.5"
+              value={filters.accelerationRange[1]}
+              onChange={(e) => handleAccelerationChange(e.target.value, 1)}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <div className="flex justify-between text-sm text-gray-600">
+              <span>{filters.accelerationRange[0]} sn</span>
+              <span>{filters.accelerationRange[1]} sn</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
