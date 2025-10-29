@@ -32,6 +32,8 @@ db = client[os.environ['DB_NAME']]
 cars_collection = db.cars
 users_collection = db.users
 reviews_collection = db.reviews
+forum_topics_collection = db.forum_topics
+forum_comments_collection = db.forum_comments
 
 # Create the main app
 app = FastAPI(title="Aradaki Fark API")
