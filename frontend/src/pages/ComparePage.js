@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { comparisonAPI, carAPI } from '../api';
-import { ArrowLeft, Check, X } from 'lucide-react';
+import { comparisonAPI, carAPI, favoritesAPI } from '../api';
+import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../contexts/ToastContext';
+import { trackComparison } from '../utils/localStorage';
+import { ArrowLeft, Check, X, Save } from 'lucide-react';
 import ComparisonTool from '../components/ComparisonTool';
 
 const ComparePage = () => {
