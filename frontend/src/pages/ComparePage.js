@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import { trackComparison } from '../utils/localStorage';
 import { generateComparisonPDF } from '../utils/pdfExport';
-import { ArrowLeft, Check, X, Save, Download } from 'lucide-react';
+import { ArrowLeft, Check, X, Save, Download, FileDown } from 'lucide-react';
 import ComparisonTool from '../components/ComparisonTool';
 
 const ComparePage = () => {
