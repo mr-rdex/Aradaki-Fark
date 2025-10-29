@@ -284,3 +284,39 @@ export const profileAPI = {
   }
 };
 
+// ============= COMPARISON HISTORY APIs =============
+export const comparisonHistoryAPI = {
+  getHistory: async () => {
+    const response = await axios.get(`${API}/comparison-history`, {
+      headers: getAuthHeader()
+    });
+    return response.data;
+  }
+};
+
+// ============= ADMIN USER MANAGEMENT APIs =============
+export const adminUserAPI = {
+  updateUserProfile: async (userId, coverPhoto, badges) => {
+    const response = await axios.put(
+      `${API}/admin/users/${userId}/profile`,
+      { coverPhoto, badges },
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
+  
+  getForumTopics: async () => {
+    const response = await axios.get(`${API}/admin/forum/topics`, {
+      headers: getAuthHeader()
+    });
+    return response.data;
+  },
+  
+  getForumComments: async () => {
+    const response = await axios.get(`${API}/admin/forum/comments`, {
+      headers: getAuthHeader()
+    });
+    return response.data;
+  }
+};
+
