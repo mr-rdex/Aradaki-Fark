@@ -21,6 +21,7 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
   const fuelTypes = ['Benzin', 'Dizel', 'Elektrik', 'Hibrit'];
   const transmissions = ['Otomatik', 'Manuel'];
   const driveTrains = ['Önden Çekiş', 'Arkadan İtiş', '4x4'];
+  const carTypes = ['Sedan', 'SUV', 'Hatchback', 'Coupe', 'Station Wagon', 'MPV', 'Pickup'];
 
   const handleBrandToggle = (brand) => {
     const newBrands = filters.brands.includes(brand)
