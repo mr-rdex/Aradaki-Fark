@@ -108,7 +108,7 @@ const HomePage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestAcceleration.map((car) => (
-                <CarCard key={car.CarID} car={car} compact />
+                <CarCard key={car.CarID} car={car} compact showStat="acceleration" />
               ))}
             </div>
           </div>
@@ -123,7 +123,7 @@ const HomePage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestEconomy.map((car) => (
-                <CarCard key={car.CarID} car={car} compact />
+                <CarCard key={car.CarID} car={car} compact showStat="economy" />
               ))}
             </div>
           </div>
@@ -138,7 +138,7 @@ const HomePage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestBaggage.map((car) => (
-                <CarCard key={car.CarID} car={car} compact />
+                <CarCard key={car.CarID} car={car} compact showStat="baggage" />
               ))}
             </div>
           </div>
@@ -153,7 +153,7 @@ const HomePage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestHorsepower.map((car) => (
-                <CarCard key={car.CarID} car={car} compact />
+                <CarCard key={car.CarID} car={car} compact showStat="horsepower" />
               ))}
             </div>
           </div>
@@ -168,7 +168,7 @@ const HomePage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestPrice.map((car) => (
-                <CarCard key={car.CarID} car={car} compact />
+                <CarCard key={car.CarID} car={car} compact showStat="price" />
               ))}
             </div>
           </div>
