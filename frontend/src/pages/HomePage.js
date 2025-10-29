@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { carAPI } from '../api';
-import { Search, ArrowRight, TrendingUp, Zap, DollarSign, Package, Fuel } from 'lucide-react';
+import { getRecentlyViewed } from '../utils/localStorage';
+import { Search, ArrowRight, TrendingUp, Zap, DollarSign, Package, Fuel, Clock } from 'lucide-react';
 import CarCard from '../components/CarCard';
 import ComparisonTool from '../components/ComparisonTool';
 
