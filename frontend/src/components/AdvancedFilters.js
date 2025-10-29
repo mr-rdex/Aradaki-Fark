@@ -8,9 +8,13 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
     priceRange: [0, 10000000],
     yearRange: [2020, 2024],
     horsepowerRange: [0, 500],
+    economyRange: [0, 20],
+    baggageRange: [0, 1000],
+    accelerationRange: [0, 20],
     fuelTypes: [],
     transmissions: [],
-    driveTrains: []
+    driveTrains: [],
+    carTypes: []
   });
 
   const brands = ['Toyota', 'BMW', 'Mercedes-Benz', 'Volkswagen', 'Audi', 'Honda', 'Ford', 'Renault', 'Hyundai', 'Peugeot', 'Tesla', 'Volvo', 'Fiat', 'Mazda', 'Nissan', 'Kia', 'Seat', 'Skoda', 'Opel', 'Dacia', 'Citroen', 'Alfa Romeo', 'Suzuki', 'Mitsubishi', 'Mini', 'Jeep', 'Lexus', 'Porsche', 'Subaru'];
