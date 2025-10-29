@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { favoritesAPI, reviewAPI } from '../api';
 import CarCard from '../components/CarCard';
-import { User, Heart, GitCompare, MessageSquare, Settings } from 'lucide-react';
+import { User, Heart, GitCompare, MessageSquare, Settings, History } from 'lucide-react';
+import { getPopularComparisons } from '../utils/localStorage';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
