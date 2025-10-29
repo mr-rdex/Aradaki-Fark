@@ -13,6 +13,7 @@ const ProfilePage = () => {
   const [favorites, setFavorites] = useState([]);
   const [comparisons, setComparisons] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [comparisonHistory, setComparisonHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
