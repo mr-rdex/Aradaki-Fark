@@ -364,7 +364,18 @@ const ComparePage = () => {
         </div>
 
         {/* New Comparison Button */}
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onClick={handleDownloadPDF}
+            className="group relative flex items-center justify-center bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition"
+            title="PDF Şeklinde İndir"
+            data-testid="download-pdf-button-bottom"
+          >
+            <FileDown className="w-5 h-5" />
+            <span className="absolute bottom-full mb-2 hidden group-hover:block bg-gray-900 text-white text-xs px-3 py-1 rounded whitespace-nowrap">
+              PDF Şeklinde İndir
+            </span>
+          </button>
           <button
             onClick={() => navigate('/compare')}
             className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition font-semibold"
