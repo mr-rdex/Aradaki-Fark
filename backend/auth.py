@@ -78,3 +78,16 @@ async def get_current_admin(current_user: dict = Depends(get_current_user)) -> d
             detail="Not enough permissions"
         )
     return current_user
+
+
+async def get_current_user_optional(credentials: Optional[HTTPAuthorizationCredentials] = Depends(HTTPBearer(auto_error=False))) -> Optional[dict]:
+    """Get the current user from JWT token (optional - returns None if not authenticated)"""
+    if not credentials:
+        return None
+    
+    try:
+        token = credentials.credentials
+        payload = decode_token(token)
+        return payload
+    except:
+        return None
