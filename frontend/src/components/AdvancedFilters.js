@@ -127,9 +127,13 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
       priceRange: [0, 10000000],
       yearRange: [2020, 2024],
       horsepowerRange: [0, 500],
+      economyRange: [0, 20],
+      baggageRange: [0, 1000],
+      accelerationRange: [0, 20],
       fuelTypes: [],
       transmissions: [],
-      driveTrains: []
+      driveTrains: [],
+      carTypes: []
     };
     setFilters(defaultFilters);
     onClear();
