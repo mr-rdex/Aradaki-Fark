@@ -133,7 +133,7 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
       </button>
 
       {/* Filters Content */}
-      <div className={`${isOpen ? 'block' : 'hidden'} lg:block p-4 space-y-6`}>
+      <div className={`${isOpen ? 'block' : 'hidden'} p-4 space-y-6 border-t`}>
         {/* Mobile Clear Button */}
         <button
           onClick={clearAllFilters}
