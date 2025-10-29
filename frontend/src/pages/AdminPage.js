@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { carAPI, adminAPI } from '../api';
-import { Plus, Edit, Trash2, Users, Car as CarIcon, BarChart3, Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { useToast } from '../contexts/ToastContext';
+import { carAPI, adminAPI, adminUserAPI } from '../api';
+import { Plus, Edit, Trash2, Users, Car as CarIcon, BarChart3, Search, ChevronDown, ChevronUp, MessageSquare, Award, Camera } from 'lucide-react';
 
 const AdminPage = () => {
   const navigate = useNavigate();
