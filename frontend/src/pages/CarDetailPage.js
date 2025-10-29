@@ -32,6 +32,9 @@ const CarDetailPage = () => {
       
       setCar(carData);
       setReviews(reviewsData);
+      
+      // Add to recently viewed
+      addRecentlyViewed(carData);
     } catch (error) {
       console.error('Error fetching car data:', error);
     } finally {
