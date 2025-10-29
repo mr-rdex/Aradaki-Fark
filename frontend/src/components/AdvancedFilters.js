@@ -87,6 +87,40 @@ const AdvancedFilters = ({ onFilterChange, onClear }) => {
     onFilterChange(newFilters);
   };
 
+  const handleCarTypeToggle = (type) => {
+    const newTypes = filters.carTypes.includes(type)
+      ? filters.carTypes.filter(t => t !== type)
+      : [...filters.carTypes, type];
+    
+    const newFilters = { ...filters, carTypes: newTypes };
+    setFilters(newFilters);
+    onFilterChange(newFilters);
+  };
+
+  const handleEconomyChange = (value, index) => {
+    const newRange = [...filters.economyRange];
+    newRange[index] = parseInt(value);
+    const newFilters = { ...filters, economyRange: newRange };
+    setFilters(newFilters);
+    onFilterChange(newFilters);
+  };
+
+  const handleBaggageChange = (value, index) => {
+    const newRange = [...filters.baggageRange];
+    newRange[index] = parseInt(value);
+    const newFilters = { ...filters, baggageRange: newRange };
+    setFilters(newFilters);
+    onFilterChange(newFilters);
+  };
+
+  const handleAccelerationChange = (value, index) => {
+    const newRange = [...filters.accelerationRange];
+    newRange[index] = parseInt(value);
+    const newFilters = { ...filters, accelerationRange: newRange };
+    setFilters(newFilters);
+    onFilterChange(newFilters);
+  };
+
   const clearAllFilters = () => {
     const defaultFilters = {
       brands: [],
