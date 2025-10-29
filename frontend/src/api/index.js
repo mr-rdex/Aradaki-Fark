@@ -202,3 +202,85 @@ export const adminAPI = {
     return response.data;
   }
 };
+
+// ============= FORUM APIs =============
+export const forumAPI = {
+  getTopics: async (category = null) => {
+    const params = category ? { category } : {};
+    const response = await axios.get(`${API}/forum/topics`, { params });
+    return response.data;
+  },
+
+  getTopic: async (topicId) => {
+    const response = await axios.get(`${API}/forum/topics/${topicId}`);
+    return response.data;
+  },
+
+  createTopic: async (title, content, category) => {
+    const response = await axios.post(
+      `${API}/forum/topics`,
+      { title, content, category },
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
+
+  likeTopic: async (topicId) => {
+    const response = await axios.post(
+      `${API}/forum/topics/${topicId}/like`,
+      {},
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
+
+  deleteTopic: async (topicId) => {
+    const response = await axios.delete(`${API}/forum/topics/${topicId}`, {
+      headers: getAuthHeader()
+    });
+    return response.data;
+  },
+
+  getComments: async (topicId) => {
+    const response = await axios.get(`${API}/forum/topics/${topicId}/comments`);
+    return response.data;
+  },
+
+  createComment: async (topicId, content) => {
+    const response = await axios.post(
+      `${API}/forum/topics/${topicId}/comments`,
+      { content },
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
+
+  markSolution: async (commentId) => {
+    const response = await axios.put(
+      `${API}/forum/comments/${commentId}/solution`,
+      {},
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
+
+  deleteComment: async (commentId) => {
+    const response = await axios.delete(`${API}/forum/comments/${commentId}`, {
+      headers: getAuthHeader()
+    });
+    return response.data;
+  }
+};
+
+// ============= PROFILE APIs =============
+export const profileAPI = {
+  updateProfile: async (profileData) => {
+    const response = await axios.put(
+      `${API}/profile`,
+      profileData,
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  }
+};
+
