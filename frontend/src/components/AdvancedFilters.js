@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Filter, X, ChevronDown, ChevronUp } from 'lucide-react';
 
 const AdvancedFilters = ({ onFilterChange, onClear }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Desktop için de kapalı başlasın
   const [filters, setFilters] = useState({
     brands: [],
     priceRange: [0, 10000000],
