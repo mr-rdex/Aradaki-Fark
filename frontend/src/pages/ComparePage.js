@@ -4,7 +4,8 @@ import { comparisonAPI, carAPI, favoritesAPI } from '../api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import { trackComparison } from '../utils/localStorage';
-import { ArrowLeft, Check, X, Save } from 'lucide-react';
+import { generateComparisonPDF } from '../utils/pdfExport';
+import { ArrowLeft, Check, X, Save, Download } from 'lucide-react';
 import ComparisonTool from '../components/ComparisonTool';
 
 const ComparePage = () => {
