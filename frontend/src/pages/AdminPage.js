@@ -175,59 +175,106 @@ const AdminPage = () => {
             {/* Cars Tab */}
             {activeTab === 'cars' && (
               <div>
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                   <h2 className="text-xl font-bold text-gray-900">Araçlar</h2>
-                  <button
-                    onClick={() => navigate('/admin/car/new')}
-                    className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition flex items-center"
-                    data-testid="add-car-button"
-                  >
-                    <Plus className="w-5 h-5 mr-2" />
-                    Yeni Araç Ekle
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    {/* Search Bar */}
+                    <div className="relative flex-1 sm:flex-initial">
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        type="text"
+                        placeholder="Marka veya model ara..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                    <button
+                      onClick={() => navigate('/admin/car/new')}
+                      className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition flex items-center justify-center"
+                      data-testid="add-car-button"
+                    >
+                      <Plus className="w-5 h-5 mr-2" />
+                      Yeni Araç Ekle
+                    </button>
+                  </div>
                 </div>
 
-                {/* Cars Table */}
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Marka</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Model</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Yıl</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Fiyat</th>
-                        <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200">
-                      {cars.map((car) => (
-                        <tr key={car.CarID} className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm text-gray-900">{car.ArabaMarka}</td>
-                          <td className="px-4 py-3 text-sm text-gray-900">{car.CarModel}</td>
-                          <td className="px-4 py-3 text-sm text-gray-900">{car.CarYear}</td>
-                          <td className="px-4 py-3 text-sm text-gray-900">
-                            {car.CarPrice ? `${car.CarPrice.toLocaleString('tr-TR')} TL` : '-'}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-right">
-                            <button
-                              onClick={() => navigate(`/admin/car/${car.CarID}`)}
-                              className="text-blue-600 hover:text-blue-800 mr-3"
-                              data-testid={`edit-car-${car.CarID}`}
-                            >
-                              <Edit className="w-5 h-5 inline" />
-                            </button>
-                            <button
-                              onClick={() => handleDeleteCar(car.CarID)}
-                              className="text-red-600 hover:text-red-800"
-                              data-testid={`delete-car-${car.CarID}`}
-                            >
-                              <Trash2 className="w-5 h-5 inline" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                {/* Cars Grouped by Brand */}
+                <div className="space-y-4">
+                  {groupCarsByBrand().length === 0 ? (
+                    <p className="text-gray-500 text-center py-8">Araç bulunamadı</p>
+                  ) : (
+                    groupCarsByBrand().map(({ brand, cars: brandCars }) => (
+                      <div key={brand} className="border border-gray-200 rounded-lg overflow-hidden">
+                        {/* Brand Header */}
+                        <button
+                          onClick={() => toggleBrand(brand)}
+                          className="w-full bg-gray-50 hover:bg-gray-100 px-6 py-4 flex items-center justify-between transition"
+                        >
+                          <div className="flex items-center">
+                            <CarIcon className="w-5 h-5 text-blue-500 mr-3" />
+                            <h3 className="text-lg font-semibold text-gray-900">{brand}</h3>
+                            <span className="ml-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                              {brandCars.length} araç
+                            </span>
+                          </div>
+                          {expandedBrands[brand] ? (
+                            <ChevronUp className="w-5 h-5 text-gray-500" />
+                          ) : (
+                            <ChevronDown className="w-5 h-5 text-gray-500" />
+                          )}
+                        </button>
+
+                        {/* Brand Cars Table */}
+                        {expandedBrands[brand] && (
+                          <div className="overflow-x-auto">
+                            <table className="w-full">
+                              <thead className="bg-gray-50 border-t border-gray-200">
+                                <tr>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Model</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Paket</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Yıl</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Fiyat</th>
+                                  <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-gray-200 bg-white">
+                                {brandCars.map((car) => (
+                                  <tr key={car.CarID} className="hover:bg-gray-50">
+                                    <td className="px-4 py-3 text-sm font-medium text-gray-900">{car.CarModel}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">{car.CarPack}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-900">{car.CarYear}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-900">
+                                      {car.CarPrice ? `${car.CarPrice.toLocaleString('tr-TR')} TL` : '-'}
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-right">
+                                      <button
+                                        onClick={() => navigate(`/admin/car/${car.CarID}`)}
+                                        className="text-blue-600 hover:text-blue-800 mr-3"
+                                        data-testid={`edit-car-${car.CarID}`}
+                                        title="Düzenle"
+                                      >
+                                        <Edit className="w-5 h-5 inline" />
+                                      </button>
+                                      <button
+                                        onClick={() => handleDeleteCar(car.CarID)}
+                                        className="text-red-600 hover:text-red-800"
+                                        data-testid={`delete-car-${car.CarID}`}
+                                        title="Sil"
+                                      >
+                                        <Trash2 className="w-5 h-5 inline" />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             )}
