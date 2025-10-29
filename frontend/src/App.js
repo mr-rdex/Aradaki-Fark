@@ -32,6 +32,7 @@ function App() {
                       <Route path="/cars" element={<AllCarsPage />} />
                       <Route path="/car/:id" element={<CarDetailPage />} />
                       <Route path="/compare" element={<ComparePage />} />
+                      <Route path="/popular-comparisons" element={<PopularComparisonsPage />} />
                       <Route path="/profile" element={<ProfilePage />} />
                       <Route path="/admin" element={<AdminPage />} />
                     </Routes>
