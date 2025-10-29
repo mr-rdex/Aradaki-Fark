@@ -12,6 +12,8 @@ import ProfilePage from './pages/ProfilePage';
 import AdminPage from './pages/AdminPage';
 import CarFormPage from './pages/CarFormPage';
 import PopularComparisonsPage from './pages/PopularComparisonsPage';
+import ForumPage from './pages/ForumPage';
+import ForumTopicPage from './pages/ForumTopicPage';
 import './App.css';
 
 function App() {
