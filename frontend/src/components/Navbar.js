@@ -90,7 +90,7 @@ const Navbar = () => {
                     <div
                       key={car.CarID}
                       onClick={() => handleCarClick(car.CarID)}
-                      className="flex items-center p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                      className="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b dark:border-gray-700 last:border-b-0"
                       data-testid={`search-result-${car.CarID}`}
                     >
                       <img
@@ -99,10 +99,10 @@ const Navbar = () => {
                         className="w-16 h-12 object-cover rounded mr-3"
                       />
                       <div>
-                        <div className="font-semibold text-gray-900">
+                        <div className="font-semibold text-gray-900 dark:text-white">
                           {car.ArabaMarka} {car.CarModel}
                         </div>
-                        <div className="text-sm text-gray-600">{car.CarPack}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">{car.CarPack}</div>
                       </div>
                     </div>
                   ))}
@@ -112,22 +112,35 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/cars" className="text-gray-700 hover:text-blue-600 font-medium" data-testid="nav-cars-link">
+          <div className="hidden lg:flex items-center space-x-4">
+            <Link to="/cars" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium whitespace-nowrap" data-testid="nav-cars-link">
               Tüm Araçlar
             </Link>
-            <Link to="/compare" className="text-gray-700 hover:text-blue-600 font-medium" data-testid="nav-compare-link">
+            <Link to="/compare" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium whitespace-nowrap" data-testid="nav-compare-link">
               Karşılaştır
             </Link>
-            <Link to="/forum" className="text-gray-700 hover:text-blue-600 font-medium" data-testid="nav-forum-link">
+            <Link to="/forum" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium whitespace-nowrap" data-testid="nav-forum-link">
               Forum
             </Link>
-            <Link to="/popular-comparisons" className="text-gray-700 hover:text-blue-600 font-medium" data-testid="nav-popular-link">
+            <Link to="/popular-comparisons" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium whitespace-nowrap" data-testid="nav-popular-link">
               Popüler
             </Link>
             
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              title={theme === 'dark' ? 'Açık Mod' : 'Karanlık Mod'}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-gray-300" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-700" />
+              )}
+            </button>
+            
             {user ? (
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3">
                 {isAdmin() && (
                   <Link
                     to="/admin"
