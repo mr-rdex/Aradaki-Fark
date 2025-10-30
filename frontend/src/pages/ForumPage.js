@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import { forumAPI } from '../api';
+import AdSlot from '../components/AdSlot';
 import { MessageSquare, ThumbsUp, Clock, Plus, Filter } from 'lucide-react';
 
 const CATEGORIES = [
