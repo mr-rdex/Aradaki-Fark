@@ -253,21 +253,21 @@ const Navbar = () => {
             </Link>
             <Link
               to="/compare"
-              className="block py-2 text-gray-700 hover:text-blue-600"
+              className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Karşılaştır
             </Link>
             <Link
               to="/forum"
-              className="block py-2 text-gray-700 hover:text-blue-600"
+              className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Forum
             </Link>
             <Link
               to="/popular-comparisons"
-              className="block py-2 text-gray-700 hover:text-blue-600"
+              className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Popüler Karşılaştırmalar
@@ -277,7 +277,7 @@ const Navbar = () => {
                 {isAdmin() && (
                   <Link
                     to="/admin"
-                    className="block py-2 text-gray-700 hover:text-blue-600"
+                    className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Admin Paneli
@@ -285,7 +285,7 @@ const Navbar = () => {
                 )}
                 <Link
                   to="/profile"
-                  className="block py-2 text-gray-700 hover:text-blue-600"
+                  className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Profilim
