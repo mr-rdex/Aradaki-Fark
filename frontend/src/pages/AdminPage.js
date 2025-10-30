@@ -541,7 +541,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
               value={coverPhoto}
               onChange={(e) => setCoverPhoto(e.target.value)}
               placeholder="https://example.com/cover-photo.jpg"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 dark:text-white"
             />
             {coverPhoto && (
               <img
