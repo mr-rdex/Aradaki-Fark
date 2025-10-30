@@ -130,9 +130,9 @@ const HomePage = () => {
       </section>
 
       {/* Best Categories Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-700">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center" data-testid="best-categories-title">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center" data-testid="best-categories-title">
             En İyi Araçlar
           </h2>
 
