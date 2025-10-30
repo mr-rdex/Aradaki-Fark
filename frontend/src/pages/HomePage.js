@@ -115,6 +115,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        </>
       )}
 
       {/* Advertisement - Above Popular Cars */}
