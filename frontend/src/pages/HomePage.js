@@ -146,6 +146,13 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Advertisement - Above Best Categories */}
+      <section className="bg-gray-50 dark:bg-gray-800 pt-8">
+        <div className="container mx-auto px-4">
+          <AdSlot slot="" />
+        </div>
+      </section>
+
       {/* Best Categories Section */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
