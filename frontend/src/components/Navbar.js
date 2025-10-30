@@ -60,13 +60,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-testid="logo-link">
             <Car className="w-8 h-8 text-blue-500" />
-            <span className="text-2xl font-bold text-gray-900">Aradaki Fark</span>
+            <span className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Aradaki Fark</span>
           </Link>
 
           {/* Search Bar - Desktop */}
@@ -78,14 +78,14 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => searchQuery && setShowSearchResults(true)}
-                className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 pl-10 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 data-testid="search-input"
               />
-              <Search className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-3 top-2.5 w-5 h-5 text-gray-400 dark:text-gray-500" />
               
               {/* Search Results Dropdown */}
               {showSearchResults && searchResults.length > 0 && (
-                <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-lg max-h-96 overflow-y-auto" data-testid="search-results">
+                <div className="absolute top-full mt-2 w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg max-h-96 overflow-y-auto border dark:border-gray-700" data-testid="search-results">
                   {searchResults.map((car) => (
                     <div
                       key={car.CarID}
