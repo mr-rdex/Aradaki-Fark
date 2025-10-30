@@ -76,7 +76,15 @@ const HomePage = () => {
 
       {/* Recently Viewed Section - Only show if user has viewed cars */}
       {recentlyViewed.length > 0 && (
-        <section className="py-12 bg-gray-50 dark:bg-gray-800">
+        <>
+          {/* Advertisement - Above Recently Viewed */}
+          <section className="bg-gray-50 dark:bg-gray-800 pt-8">
+            <div className="container mx-auto px-4">
+              <AdSlot slot="" />
+            </div>
+          </section>
+          
+          <section className="py-12 bg-gray-50 dark:bg-gray-800">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
