@@ -146,7 +146,7 @@ const AllCarsPage = () => {
               <select
                 value={sortBy}
                 onChange={handleSortChange}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 dark:text-white"
+                className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 dark:text-white"
               >
                 <option value="default">Varsayılan Sıralama</option>
                 <option value="priceAsc">Fiyat (Düşükten Yükseğe)</option>
