@@ -319,18 +319,18 @@ const ProfilePage = () => {
               <div className="space-y-6">
                 {/* User Topics */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Açtığım Konular ({forumTopics.length})</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Açtığım Konular ({forumTopics.length})</h3>
                   {forumTopics.length === 0 ? (
-                    <p className="text-gray-500 text-center py-4">Henüz konu açmadınız</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-center py-4">Henüz konu açmadınız</p>
                   ) : (
                     <div className="space-y-3">
                       {forumTopics.map(topic => (
                         <div
                           key={topic.topicId}
                           onClick={() => navigate(`/forum/${topic.topicId}`)}
-                          className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 cursor-pointer transition"
+                          className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer transition"
                         >
-                          <h4 className="font-semibold text-gray-900 mb-1">{topic.title}</h4>
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{topic.title}</h4>
                           <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
                             <span>{topic.category}</span>
                             <span>•</span>
@@ -346,18 +346,18 @@ const ProfilePage = () => {
 
                 {/* User Comments */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Yorumlarım ({forumComments.length})</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Yorumlarım ({forumComments.length})</h3>
                   {forumComments.length === 0 ? (
-                    <p className="text-gray-500 text-center py-4">Henüz yorum yapmadınız</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-center py-4">Henüz yorum yapmadınız</p>
                   ) : (
                     <div className="space-y-3">
                       {forumComments.slice(0, 5).map(comment => (
                         <div
                           key={comment.commentId}
-                          className="bg-gray-50 p-4 rounded-lg"
+                          className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg"
                         >
                           <p className="text-gray-700 dark:text-gray-300 mb-2">{comment.content}</p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
                             {new Date(comment.createdAt).toLocaleDateString('tr-TR')}
                           </p>
                         </div>
