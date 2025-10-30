@@ -193,9 +193,6 @@ const ComparePage = () => {
           </div>
         </div>
 
-        {/* Advertisement - Below Comparison Header */}
-        <AdSlot slot="" />
-
         {/* Images Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div
