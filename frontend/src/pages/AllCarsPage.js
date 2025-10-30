@@ -4,6 +4,7 @@ import { carAPI } from '../api';
 import CarCard from '../components/CarCard';
 import AdvancedFilters from '../components/AdvancedFilters';
 import SkeletonLoaders from '../components/SkeletonLoaders';
+import AdSlot from '../components/AdSlot';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const AllCarsPage = () => {
