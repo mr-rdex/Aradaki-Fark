@@ -64,13 +64,13 @@ const ForumPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Forum</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Forum</h1>
               <p className="text-gray-600 dark:text-gray-400">Araçlar hakkında soru sorun, deneyimlerinizi paylaşın</p>
             </div>
             <button
