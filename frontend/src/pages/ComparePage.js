@@ -7,6 +7,7 @@ import { trackComparison } from '../utils/localStorage';
 import { generateComparisonPDF } from '../utils/pdfExport';
 import { ArrowLeft, Check, X, Save, Download, FileDown } from 'lucide-react';
 import ComparisonTool from '../components/ComparisonTool';
+import AdSlot from '../components/AdSlot';
 
 const ComparePage = () => {
   const [searchParams] = useSearchParams();
