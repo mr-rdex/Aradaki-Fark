@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-testid="logo-link">
-            <Car className="w-8 h-8 text-blue-500" />
+            <Car className="w-8 h-8 text-white" />
             <span className="text-xl md:text-2xl font-bold text-blue-500">Aradaki Fark</span>
           </Link>
 
