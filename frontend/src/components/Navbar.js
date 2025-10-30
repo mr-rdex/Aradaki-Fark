@@ -8,6 +8,7 @@ import { Search, Menu, X, User, LogOut, Heart, Settings, Car, Moon, Sun } from '
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logout, isAdmin } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
