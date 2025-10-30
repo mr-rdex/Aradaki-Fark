@@ -140,38 +140,38 @@ const Navbar = () => {
             </button>
             
             {user ? (
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2">
                 {isAdmin() && (
                   <Link
                     to="/admin"
-                    className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                    className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium whitespace-nowrap"
                     data-testid="nav-admin-link"
                   >
                     <Settings className="w-5 h-5 mr-1" />
-                    Admin
+                    <span className="hidden xl:inline">Admin</span>
                   </Link>
                 )}
                 <Link
                   to="/profile"
-                  className="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+                  className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium whitespace-nowrap"
                   data-testid="nav-profile-link"
                 >
                   <User className="w-5 h-5 mr-1" />
-                  Profil
+                  <span className="hidden xl:inline">Profil</span>
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center text-gray-700 hover:text-red-600 font-medium"
+                  className="flex items-center text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium whitespace-nowrap"
                   data-testid="logout-button"
                 >
                   <LogOut className="w-5 h-5 mr-1" />
-                  Çıkış
+                  <span className="hidden xl:inline">Çıkış</span>
                 </button>
               </div>
             ) : (
               <Link
                 to="/login"
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition whitespace-nowrap text-sm font-medium"
                 data-testid="nav-login-button"
               >
                 Giriş Yap
@@ -179,8 +179,21 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
+          {/* Mobile Menu Button + Theme Toggle */}
+          <div className="lg:hidden flex items-center space-x-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              title={theme === 'dark' ? 'Açık Mod' : 'Karanlık Mod'}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-gray-300" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-700" />
+              )}
+            </button>
+            <button
+
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2"
             data-testid="mobile-menu-button"
