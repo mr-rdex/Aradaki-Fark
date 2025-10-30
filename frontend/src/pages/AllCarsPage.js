@@ -1,32 +1,22 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { carAPI } from '../api';
 import CarCard from '../components/CarCard';
 import AdvancedFilters from '../components/AdvancedFilters';
-import { CarCardSkeletonGrid } from '../components/SkeletonLoaders';
-import { SlidersHorizontal } from 'lucide-react';
+import SkeletonLoaders from '../components/SkeletonLoaders';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const AllCarsPage = () => {
+  const navigate = useNavigate();
   const [cars, setCars] = useState([]);
   const [filteredCars, setFilteredCars] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [sortBy, setSortBy] = useState('');
-  const [activeFilters, setActiveFilters] = useState({
-    brands: [],
-    priceRange: [0, 10000000],
-    yearRange: [2020, 2024],
-    horsepowerRange: [0, 500],
-    fuelTypes: [],
-    transmissions: [],
-    driveTrains: []
-  });
+  const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState('default');
 
   useEffect(() => {
     fetchCars();
   }, []);
-
-  useEffect(() => {
-    applyFiltersAndSort();
-  }, [cars, activeFilters, sortBy]);
 
   const fetchCars = async () => {
     try {
@@ -40,142 +30,158 @@ const AllCarsPage = () => {
     }
   };
 
-  const applyFiltersAndSort = () => {
-    let result = [...cars];
+  const handleFilterChange = (filters) => {
+    let filtered = [...cars];
 
     // Brand filter
-    if (activeFilters.brands.length > 0) {
-      result = result.filter(car => activeFilters.brands.includes(car.ArabaMarka));
+    if (filters.brands && filters.brands.length > 0) {
+      filtered = filtered.filter(car => filters.brands.includes(car.ArabaMarka));
     }
 
-    // Price filter
-    result = result.filter(car => {
-      if (!car.CarPrice) return true;
-      return car.CarPrice >= activeFilters.priceRange[0] && car.CarPrice <= activeFilters.priceRange[1];
-    });
+    // Price range filter
+    if (filters.priceRange) {
+      filtered = filtered.filter(car => 
+        car.CarPrice >= filters.priceRange[0] && car.CarPrice <= filters.priceRange[1]
+      );
+    }
 
-    // Year filter
-    result = result.filter(car => 
-      car.CarYear >= activeFilters.yearRange[0] && car.CarYear <= activeFilters.yearRange[1]
-    );
+    // Year range filter
+    if (filters.yearRange) {
+      filtered = filtered.filter(car => 
+        car.CarYear >= filters.yearRange[0] && car.CarYear <= filters.yearRange[1]
+      );
+    }
 
-    // Horsepower filter
-    result = result.filter(car =>
-      car.CarHorsePower >= activeFilters.horsepowerRange[0] && car.CarHorsePower <= activeFilters.horsepowerRange[1]
-    );
+    // Horsepower range filter
+    if (filters.horsepowerRange) {
+      filtered = filtered.filter(car => 
+        car.CarHorsePower >= filters.horsepowerRange[0] && car.CarHorsePower <= filters.horsepowerRange[1]
+      );
+    }
 
     // Fuel type filter
-    if (activeFilters.fuelTypes.length > 0) {
-      result = result.filter(car => activeFilters.fuelTypes.includes(car.CarFuelType));
+    if (filters.fuelTypes && filters.fuelTypes.length > 0) {
+      filtered = filtered.filter(car => filters.fuelTypes.includes(car.CarFuelType));
     }
 
     // Transmission filter
-    if (activeFilters.transmissions.length > 0) {
-      result = result.filter(car => activeFilters.transmissions.includes(car.CarTransmission));
+    if (filters.transmissions && filters.transmissions.length > 0) {
+      filtered = filtered.filter(car => filters.transmissions.includes(car.CarTransmission));
     }
 
     // Drive train filter
-    if (activeFilters.driveTrains.length > 0) {
-      result = result.filter(car => activeFilters.driveTrains.includes(car.CarDriveTrain));
+    if (filters.driveTrains && filters.driveTrains.length > 0) {
+      filtered = filtered.filter(car => filters.driveTrains.includes(car.CarDriveTrain));
     }
 
-    // Sort
-    if (sortBy === 'price-asc') {
-      result.sort((a, b) => (a.CarPrice || 999999999) - (b.CarPrice || 999999999));
-    } else if (sortBy === 'price-desc') {
-      result.sort((a, b) => (b.CarPrice || 0) - (a.CarPrice || 0));
-    } else if (sortBy === 'horsepower') {
-      result.sort((a, b) => b.CarHorsePower - a.CarHorsePower);
-    } else if (sortBy === 'rating') {
-      result.sort((a, b) => b.averageRating - a.averageRating);
-    } else if (sortBy === 'year') {
-      result.sort((a, b) => b.CarYear - a.CarYear);
+    // Car type filter
+    if (filters.carTypes && filters.carTypes.length > 0) {
+      filtered = filtered.filter(car => filters.carTypes.includes(car.CarType));
     }
 
-    setFilteredCars(result);
-  };
+    // Economy filter
+    if (filters.economyRange) {
+      filtered = filtered.filter(car => 
+        car.CarEconomy >= filters.economyRange[0] && car.CarEconomy <= filters.economyRange[1]
+      );
+    }
 
-  const handleFilterChange = (newFilters) => {
-    setActiveFilters(newFilters);
+    // Baggage filter
+    if (filters.baggageRange) {
+      filtered = filtered.filter(car => 
+        car.CarBaggageLT >= filters.baggageRange[0] && car.CarBaggageLT <= filters.baggageRange[1]
+      );
+    }
+
+    // Acceleration filter
+    if (filters.accelerationRange) {
+      filtered = filtered.filter(car => 
+        car.CarAcceleration >= filters.accelerationRange[0] && car.CarAcceleration <= filters.accelerationRange[1]
+      );
+    }
+
+    setFilteredCars(filtered);
   };
 
   const handleClearFilters = () => {
-    const defaultFilters = {
-      brands: [],
-      priceRange: [0, 10000000],
-      yearRange: [2020, 2024],
-      horsepowerRange: [0, 500],
-      fuelTypes: [],
-      transmissions: [],
-      driveTrains: []
-    };
-    setActiveFilters(defaultFilters);
-    setSortBy('');
+    setFilteredCars(cars);
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="container mx-auto px-4">
-          <div className="h-8 bg-gray-200 rounded w-48 mb-8 animate-pulse"></div>
-          <div className="h-64 bg-gray-200 rounded-lg mb-6 animate-pulse"></div>
-          <CarCardSkeletonGrid count={12} />
-        </div>
-      </div>
-    );
-  }
+  const handleSortChange = (e) => {
+    const value = e.target.value;
+    setSortBy(value);
+
+    let sorted = [...filteredCars];
+    switch (value) {
+      case 'priceAsc':
+        sorted.sort((a, b) => a.CarPrice - b.CarPrice);
+        break;
+      case 'priceDesc':
+        sorted.sort((a, b) => b.CarPrice - a.CarPrice);
+        break;
+      case 'yearDesc':
+        sorted.sort((a, b) => b.CarYear - a.CarYear);
+        break;
+      case 'horsepowerDesc':
+        sorted.sort((a, b) => b.CarHorsePower - a.CarHorsePower);
+        break;
+      default:
+        break;
+    }
+    setFilteredCars(sorted);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 md:py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6" data-testid="all-cars-title">
-          Tüm Araçlar
-        </h1>
-
-        {/* Advanced Filters */}
-        <AdvancedFilters 
-          onFilterChange={handleFilterChange}
-          onClear={handleClearFilters}
-        />
-
-        {/* Sort and Results */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
-          <p className="text-gray-600">
-            <span className="font-semibold">{filteredCars.length}</span> araç bulundu
-          </p>
-          
-          <div className="flex items-center space-x-2">
-            <SlidersHorizontal className="w-5 h-5 text-gray-600" />
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-              data-testid="sort-select"
-            >
-              <option value="">Sıralama</option>
-              <option value="price-asc">Fiyat: Düşükten Yükseğe</option>
-              <option value="price-desc">Fiyat: Yüksekten Düşüğe</option>
-              <option value="horsepower">Beygir Gücü</option>
-              <option value="year">Yıl: Yeniden Eskiye</option>
-              <option value="rating">Puana Göre</option>
-            </select>
+        <div className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4" data-testid="all-cars-title">
+            Tüm Araçlar
+          </h1>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <p className="text-gray-600 dark:text-gray-400">
+              {filteredCars.length} araç bulundu
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+              <select
+                value={sortBy}
+                onChange={handleSortChange}
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 dark:text-white"
+              >
+                <option value="default">Varsayılan Sıralama</option>
+                <option value="priceAsc">Fiyat (Düşükten Yükseğe)</option>
+                <option value="priceDesc">Fiyat (Yüksekten Düşüğe)</option>
+                <option value="yearDesc">Yıl (Yeniden Eskiye)</option>
+                <option value="horsepowerDesc">Beygir Gücü (Yüksekten Düşüğe)</option>
+              </select>
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="flex items-center justify-center bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition font-semibold"
+              >
+                Gelişmiş Filtreler
+                {showFilters ? <ChevronUp className="ml-2 w-5 h-5" /> : <ChevronDown className="ml-2 w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Cars Grid */}
-        {filteredCars.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-lg shadow-md">
-            <p className="text-gray-500 text-lg mb-2">Araç bulunamadı</p>
-            <p className="text-gray-400 text-sm">Lütfen farklı filtreler deneyin</p>
-            <button
-              onClick={handleClearFilters}
-              className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
-            >
-              Filtreleri Temizle
-            </button>
+        {showFilters && (
+          <div className="mb-8">
+            <AdvancedFilters
+              onFilterChange={handleFilterChange}
+              onClear={handleClearFilters}
+            />
+          </div>
+        )}
+
+        {loading ? (
+          <SkeletonLoaders count={12} />
+        ) : filteredCars.length === 0 ? (
+          <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+            <p className="text-gray-600 dark:text-gray-400 text-lg">Filtrelere uygun araç bulunamadı</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredCars.map((car) => (
               <CarCard key={car.CarID} car={car} />
             ))}
