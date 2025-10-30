@@ -108,7 +108,7 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
         />
         <button
           onClick={handleFavoriteToggle}
-          className="absolute top-2 right-2 bg-white/90 p-2 rounded-full hover:bg-white transition"
+          className="absolute top-2 right-2 bg-white/90 dark:bg-gray-800/90 p-2 rounded-full hover:bg-white dark:hover:bg-gray-800 transition"
           data-testid={`favorite-button-${car.CarID}`}
         >
           <Heart
