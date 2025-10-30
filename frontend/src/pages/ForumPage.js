@@ -156,7 +156,7 @@ const ForumPage = () => {
                       </p>
                       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                         <span className="flex items-center">
-                          <span className="font-medium text-gray-700">{topic.userName}</span>
+                          <span className="font-medium text-gray-700 dark:text-gray-300">{topic.userName}</span>
                         </span>
                         <span className="flex items-center">
                           <Clock className="w-4 h-4 mr-1" />

@@ -159,7 +159,7 @@ const RegisterPage = () => {
                   required
                   className="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-700 dark:text-gray-300">
                   <button
                     type="button"
                     onClick={() => setShowKvkkModal(true)}
@@ -179,7 +179,7 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   className="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-700 dark:text-gray-300">
                   E-posta ile bildirim almak istiyorum (Yeni konu yorumları, güncellemeler)
                 </span>
               </label>

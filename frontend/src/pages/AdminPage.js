@@ -264,7 +264,7 @@ const AdminPage = () => {
                                 {brandCars.map((car) => (
                                   <tr key={car.CarID} className="hover:bg-gray-50">
                                     <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white">{car.CarModel}</td>
-                                    <td className="px-4 py-3 text-sm text-gray-700">{car.CarPack}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{car.CarPack}</td>
                                     <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{car.CarYear}</td>
                                     <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                                       {car.CarPrice ? `${car.CarPrice.toLocaleString('tr-TR')} TL` : '-'}
@@ -457,7 +457,7 @@ const AdminPage = () => {
                             Sil
                           </button>
                         </div>
-                        <p className="text-sm text-gray-700">{comment.content}</p>
+                        <p className="text-sm text-gray-700 dark:text-gray-300">{comment.content}</p>
                       </div>
                     ))}
                   </div>

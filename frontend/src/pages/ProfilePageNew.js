@@ -389,7 +389,7 @@ const ProfilePage = () => {
                             <span className="font-semibold">{review.rating}</span>
                           </div>
                         </div>
-                        <p className="text-gray-700">{review.comment}</p>
+                        <p className="text-gray-700 dark:text-gray-300">{review.comment}</p>
                       </div>
                     ))}
                   </div>
