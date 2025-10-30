@@ -233,6 +233,9 @@ const ComparePage = () => {
           </div>
         </div>
 
+        {/* Advertisement - Below Images */}
+        <AdSlot slot="" />
+
         {/* Comparison Table */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
           <div className="overflow-x-auto">
