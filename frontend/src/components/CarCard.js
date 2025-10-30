@@ -135,16 +135,16 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
         </div>
         <div className="space-y-2 mt-3">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">Beygir Gücü</span>
-            <span className="font-semibold text-gray-900">{car.CarHorsePower} HP</span>
+            <span className="text-gray-600 dark:text-gray-400">Beygir Gücü</span>
+            <span className="font-semibold text-gray-900 dark:text-white">{car.CarHorsePower} HP</span>
           </div>
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">0-100 km/s</span>
-            <span className="font-semibold text-gray-900">{car.CarAcceleration}s</span>
+            <span className="text-gray-600 dark:text-gray-400">0-100 km/s</span>
+            <span className="font-semibold text-gray-900 dark:text-white">{car.CarAcceleration}s</span>
           </div>
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">Yakıt Tüketimi</span>
-            <span className="font-semibold text-gray-900">{car.CarEconomy}L/100km</span>
+            <span className="text-gray-600 dark:text-gray-400">Yakıt Tüketimi</span>
+            <span className="font-semibold text-gray-900 dark:text-white">{car.CarEconomy}L/100km</span>
           </div>
         </div>
         <div className="mt-4 pt-4 border-t border-gray-200">
