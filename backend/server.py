@@ -172,6 +172,96 @@ async def get_cars(
     return cars
 
 
+@api_router.get("/cars/popular", response_model=List[Car])
+async def get_popular_cars(limit: int = Query(8, ge=1, le=20)):
+    """Get popular cars (most reviewed/highest rated)"""
+    cars = await cars_collection.find({}, {"_id": 0})\
+        .sort("averageRating", -1)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    for car in cars:
+        if isinstance(car.get('createdAt'), str):
+            car['createdAt'] = datetime.fromisoformat(car['createdAt'])
+    
+    return cars
+
+
+@api_router.get("/cars/best-horsepower", response_model=List[Car])
+async def get_best_horsepower_cars(limit: int = Query(5, ge=1, le=20)):
+    """Get cars with best horsepower"""
+    cars = await cars_collection.find({}, {"_id": 0})\
+        .sort("CarHorsePower", -1)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    for car in cars:
+        if isinstance(car.get('createdAt'), str):
+            car['createdAt'] = datetime.fromisoformat(car['createdAt'])
+    
+    return cars
+
+
+@api_router.get("/cars/best-acceleration", response_model=List[Car])
+async def get_best_acceleration_cars(limit: int = Query(5, ge=1, le=20)):
+    """Get cars with best acceleration (0-100)"""
+    cars = await cars_collection.find({"CarAcceleration": {"$gt": 0}}, {"_id": 0})\
+        .sort("CarAcceleration", 1)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    for car in cars:
+        if isinstance(car.get('createdAt'), str):
+            car['createdAt'] = datetime.fromisoformat(car['createdAt'])
+    
+    return cars
+
+
+@api_router.get("/cars/best-economy", response_model=List[Car])
+async def get_best_economy_cars(limit: int = Query(5, ge=1, le=20)):
+    """Get cars with best fuel economy"""
+    cars = await cars_collection.find({"CarEconomy": {"$gt": 0}}, {"_id": 0})\
+        .sort("CarEconomy", 1)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    for car in cars:
+        if isinstance(car.get('createdAt'), str):
+            car['createdAt'] = datetime.fromisoformat(car['createdAt'])
+    
+    return cars
+
+
+@api_router.get("/cars/best-baggage", response_model=List[Car])
+async def get_best_baggage_cars(limit: int = Query(5, ge=1, le=20)):
+    """Get cars with best baggage capacity"""
+    cars = await cars_collection.find({"CarBaggageLT": {"$gt": 0}}, {"_id": 0})\
+        .sort("CarBaggageLT", -1)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    for car in cars:
+        if isinstance(car.get('createdAt'), str):
+            car['createdAt'] = datetime.fromisoformat(car['createdAt'])
+    
+    return cars
+
+
+@api_router.get("/cars/best-price", response_model=List[Car])
+async def get_best_price_cars(limit: int = Query(5, ge=1, le=20)):
+    """Get cars with best price (lowest)"""
+    cars = await cars_collection.find({"CarPrice": {"$gt": 0}}, {"_id": 0})\
+        .sort("CarPrice", 1)\
+        .limit(limit)\
+        .to_list(limit)
+    
+    for car in cars:
+        if isinstance(car.get('createdAt'), str):
+            car['createdAt'] = datetime.fromisoformat(car['createdAt'])
+    
+    return cars
+
+
 @api_router.get("/cars/search")
 async def search_cars(q: str = Query(..., min_length=1)):
     """Search cars by brand or model"""
