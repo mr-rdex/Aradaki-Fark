@@ -121,9 +121,9 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h3 className="font-bold text-lg text-gray-900">{car.ArabaMarka}</h3>
-            <p className="text-gray-600">{car.CarModel}</p>
-            <p className="text-sm text-gray-500">{car.CarPack}</p>
+            <h3 className="font-bold text-lg text-gray-900 dark:text-white">{car.ArabaMarka}</h3>
+            <p className="text-gray-600 dark:text-gray-300">{car.CarModel}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{car.CarPack}</p>
           </div>
           {car.averageRating > 0 && (
             <div className="flex items-center bg-yellow-50 px-2 py-1 rounded">
