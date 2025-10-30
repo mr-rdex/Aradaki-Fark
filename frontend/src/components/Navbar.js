@@ -295,7 +295,7 @@ const Navbar = () => {
                     handleLogout();
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full text-left py-2 text-gray-700 hover:text-red-600"
+                  className="block w-full text-left py-2 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400"
                 >
                   Çıkış Yap
                 </button>
@@ -303,7 +303,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className="block py-2 text-blue-500 font-medium"
+                className="block py-2 text-blue-500 dark:text-blue-400 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Giriş Yap
