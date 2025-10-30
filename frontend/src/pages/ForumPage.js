@@ -243,7 +243,7 @@ const NewTopicModal = ({ onClose, onSuccess }) => {
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           {/* Category */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Kategori
             </label>
             <select
@@ -262,7 +262,7 @@ const NewTopicModal = ({ onClose, onSuccess }) => {
 
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Başlık
             </label>
             <input
@@ -280,7 +280,7 @@ const NewTopicModal = ({ onClose, onSuccess }) => {
 
           {/* Content */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               İçerik
             </label>
             <textarea

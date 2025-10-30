@@ -356,7 +356,7 @@ const ProfilePage = () => {
                           key={comment.commentId}
                           className="bg-gray-50 p-4 rounded-lg"
                         >
-                          <p className="text-gray-700 mb-2">{comment.content}</p>
+                          <p className="text-gray-700 dark:text-gray-300 mb-2">{comment.content}</p>
                           <p className="text-xs text-gray-500">
                             {new Date(comment.createdAt).toLocaleDateString('tr-TR')}
                           </p>

@@ -532,7 +532,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
         <div className="p-6 space-y-6">
           {/* Cover Photo */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               <Camera className="w-4 h-4 inline mr-1" />
               Cover Photo URL
             </label>
@@ -590,7 +590,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
           {/* Selected Badges Preview */}
           {selectedBadges.length > 0 && (
             <div className="bg-gray-50 p-4 rounded-lg">
-              <p className="text-sm font-medium text-gray-700 mb-2">Seçilen Badges:</p>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Seçilen Badges:</p>
               <div className="flex flex-wrap gap-2">
                 {selectedBadges.map((badgeValue) => {
                   const badge = BADGE_OPTIONS.find(b => b.value === badgeValue);

@@ -266,7 +266,7 @@ const CarDetailPage = () => {
           {showReviewForm && (
             <form onSubmit={handleSubmitReview} className="mb-6 p-4 bg-gray-50 rounded-lg">
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Puan
                 </label>
                 <select
@@ -283,7 +283,7 @@ const CarDetailPage = () => {
                 </select>
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Yorumunuz
                 </label>
                 <textarea

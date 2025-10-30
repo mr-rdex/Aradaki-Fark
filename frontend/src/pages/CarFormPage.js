@@ -147,7 +147,7 @@ const CarFormPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Marka */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Marka <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -163,7 +163,7 @@ const CarFormPage = () => {
 
               {/* Model */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Model <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -179,7 +179,7 @@ const CarFormPage = () => {
 
               {/* Paket */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Paket
                 </label>
                 <input
@@ -194,7 +194,7 @@ const CarFormPage = () => {
 
               {/* Yıl */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Yıl
                 </label>
                 <input
@@ -210,7 +210,7 @@ const CarFormPage = () => {
 
               {/* Yakıt Tipi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Yakıt Tipi
                 </label>
                 <select
@@ -228,7 +228,7 @@ const CarFormPage = () => {
 
               {/* Motor Hacmi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Motor Hacmi (cc)
                 </label>
                 <input
@@ -243,7 +243,7 @@ const CarFormPage = () => {
 
               {/* Beygir Gücü */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Beygir Gücü (HP)
                 </label>
                 <input
@@ -258,7 +258,7 @@ const CarFormPage = () => {
 
               {/* Araç Tipi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Araç Tipi
                 </label>
                 <select
@@ -279,7 +279,7 @@ const CarFormPage = () => {
 
               {/* Maksimum Hız */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Maksimum Hız (km/s)
                 </label>
                 <input
@@ -294,7 +294,7 @@ const CarFormPage = () => {
 
               {/* 0-100 Hızlanma */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   0-100 Hızlanma (saniye)
                 </label>
                 <input
@@ -310,7 +310,7 @@ const CarFormPage = () => {
 
               {/* Şanzıman */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Şanzıman
                 </label>
                 <select
@@ -326,7 +326,7 @@ const CarFormPage = () => {
 
               {/* Yakıt Tüketimi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Yakıt Tüketimi (L/100km)
                 </label>
                 <input
@@ -342,7 +342,7 @@ const CarFormPage = () => {
 
               {/* Ağırlık */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Ağırlık (kg)
                 </label>
                 <input
@@ -357,7 +357,7 @@ const CarFormPage = () => {
 
               {/* Yükseklik */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Yükseklik (mm)
                 </label>
                 <input
@@ -372,7 +372,7 @@ const CarFormPage = () => {
 
               {/* Genişlik */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Genişlik (mm)
                 </label>
                 <input
@@ -387,7 +387,7 @@ const CarFormPage = () => {
 
               {/* Çekiş Sistemi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Çekiş Sistemi
                 </label>
                 <select
@@ -404,7 +404,7 @@ const CarFormPage = () => {
 
               {/* Bagaj Kapasitesi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Bagaj Kapasitesi (L)
                 </label>
                 <input
@@ -419,7 +419,7 @@ const CarFormPage = () => {
 
               {/* Fren Mesafesi */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Fren Mesafesi (m)
                 </label>
                 <input
@@ -434,7 +434,7 @@ const CarFormPage = () => {
 
               {/* Fiyat */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Fiyat (TL)
                 </label>
                 <input
@@ -449,7 +449,7 @@ const CarFormPage = () => {
 
               {/* Fotoğraf URL */}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Fotoğraf URL
                 </label>
                 <input
