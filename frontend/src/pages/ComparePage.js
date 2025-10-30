@@ -137,6 +137,11 @@ const ComparePage = () => {
               Karşılaştırmak istediğiniz araçları seçin
             </p>
             <ComparisonTool />
+            
+            {/* Advertisement - Below Comparison Tool */}
+            <div className="mt-8">
+              <AdSlot slot="" />
+            </div>
           </div>
         </div>
       </div>
