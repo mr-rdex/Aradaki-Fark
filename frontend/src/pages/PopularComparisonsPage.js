@@ -88,11 +88,11 @@ const PopularComparisonsPage = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                        <span className="font-semibold text-gray-900 truncate">
+                        <span className="font-semibold text-gray-900 dark:text-white truncate">
                           {comp.car1Name}
                         </span>
-                        <span className="text-gray-500 flex-shrink-0">vs</span>
-                        <span className="font-semibold text-gray-900 truncate">
+                        <span className="text-gray-500 dark:text-gray-400 flex-shrink-0">vs</span>
+                        <span className="font-semibold text-gray-900 dark:text-white truncate">
                           {comp.car2Name}
                         </span>
                       </div>
