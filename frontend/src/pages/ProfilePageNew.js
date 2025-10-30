@@ -109,12 +109,12 @@ const ProfilePage = () => {
 
             {/* Profile Info */}
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{user.fullName}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{user.fullName}</h1>
               {user.bio && (
-                <p className="text-gray-600 mb-3">{user.bio}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-3">{user.bio}</p>
               )}
               {user.location && (
-                <p className="text-sm text-gray-500 mb-3">📍 {user.location}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">📍 {user.location}</p>
               )}
               
               {/* Badges */}
