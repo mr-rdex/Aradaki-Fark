@@ -74,7 +74,7 @@ const RegisterPage = () => {
             </div>
           </div>
           
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">Kayıt Olun</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">Kayıt Olun</h2>
           <p className="text-center text-gray-600 mb-8">Aradaki Fark'a katılın</p>
 
           {error && (
