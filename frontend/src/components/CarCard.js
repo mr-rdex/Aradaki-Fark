@@ -75,8 +75,8 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
           />
         </div>
         <div className="p-3">
-          <h3 className="font-bold text-sm text-gray-900">{car.ArabaMarka}</h3>
-          <p className="text-xs text-gray-600 mb-2">{car.CarModel}</p>
+          <h3 className="font-bold text-sm text-gray-900 dark:text-white">{car.ArabaMarka}</h3>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{car.CarModel}</p>
           <div className="flex items-center justify-between text-xs">
             <div>
               <span className="text-gray-500 block">{stat.label}</span>
