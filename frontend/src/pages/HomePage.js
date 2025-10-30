@@ -64,7 +64,7 @@ const HomePage = () => {
               Aradaki Fark
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Araçları karşılaştırın, doğru seçimi yapın
+              Araçları <span className="text-yellow-400 font-semibold">karşılaştırın</span>, doğru seçimi yapın
             </p>
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl mx-auto">
               <ComparisonTool />
