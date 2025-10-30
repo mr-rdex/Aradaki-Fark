@@ -193,13 +193,13 @@ const Navbar = () => {
               )}
             </button>
             <button
-
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2"
-            data-testid="mobile-menu-button"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-gray-700 dark:text-gray-300"
+              data-testid="mobile-menu-button"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
