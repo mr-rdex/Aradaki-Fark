@@ -79,8 +79,8 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{car.CarModel}</p>
           <div className="flex items-center justify-between text-xs">
             <div>
-              <span className="text-gray-500 block">{stat.label}</span>
-              <span className="text-blue-600 font-semibold">{stat.value}</span>
+              <span className="text-gray-500 dark:text-gray-400 block">{stat.label}</span>
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">{stat.value}</span>
             </div>
             {car.averageRating > 0 && (
               <div className="flex items-center">
