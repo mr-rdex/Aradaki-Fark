@@ -126,10 +126,10 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
             <p className="text-sm text-gray-500 dark:text-gray-400">{car.CarPack}</p>
           </div>
           {car.averageRating > 0 && (
-            <div className="flex items-center bg-yellow-50 px-2 py-1 rounded">
+            <div className="flex items-center bg-yellow-50 dark:bg-gray-700 px-2 py-1 rounded">
               <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
-              <span className="font-semibold text-gray-900">{car.averageRating}</span>
-              <span className="text-xs text-gray-600 ml-1">({car.reviewCount})</span>
+              <span className="font-semibold text-gray-900 dark:text-white">{car.averageRating}</span>
+              <span className="text-xs text-gray-600 dark:text-gray-400 ml-1">({car.reviewCount})</span>
             </div>
           )}
         </div>
