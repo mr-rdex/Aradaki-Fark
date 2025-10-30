@@ -236,7 +236,7 @@ const ComparePage = () => {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">
                     Özellik

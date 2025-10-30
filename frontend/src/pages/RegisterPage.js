@@ -278,7 +278,7 @@ const RegisterPage = () => {
               </div>
             </div>
 
-            <div className="p-6 border-t bg-gray-50">
+            <div className="p-6 border-t bg-gray-50 dark:bg-gray-700">
               <button
                 onClick={() => setShowKvkkModal(false)}
                 className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition font-semibold"

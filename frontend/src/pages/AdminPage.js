@@ -262,7 +262,7 @@ const AdminPage = () => {
                               </thead>
                               <tbody className="divide-y divide-gray-200 bg-white">
                                 {brandCars.map((car) => (
-                                  <tr key={car.CarID} className="hover:bg-gray-50">
+                                  <tr key={car.CarID} className="hover:bg-gray-50 dark:bg-gray-700">
                                     <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white">{car.CarModel}</td>
                                     <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{car.CarPack}</td>
                                     <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{car.CarYear}</td>
@@ -306,7 +306,7 @@ const AdminPage = () => {
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Kullanıcılar</h2>
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-gray-50 dark:bg-gray-700">
                       <tr>
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Ad Soyad</th>
                         <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">E-posta</th>
@@ -317,7 +317,7 @@ const AdminPage = () => {
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {users.map((u) => (
-                        <tr key={u.userId} className="hover:bg-gray-50">
+                        <tr key={u.userId} className="hover:bg-gray-50 dark:bg-gray-700">
                           <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{u.fullName}</td>
                           <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{u.email}</td>
                           <td className="px-4 py-3 text-sm">
@@ -374,7 +374,7 @@ const AdminPage = () => {
                   <h2 className="text-xl font-bold text-gray-900 mb-4">Forum Konuları ({forumTopics.length})</h2>
                   <div className="overflow-x-auto">
                     <table className="w-full">
-                      <thead className="bg-gray-50">
+                      <thead className="bg-gray-50 dark:bg-gray-700">
                         <tr>
                           <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Başlık</th>
                           <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Kategori</th>
@@ -386,7 +386,7 @@ const AdminPage = () => {
                       </thead>
                       <tbody className="divide-y divide-gray-200">
                         {forumTopics.map((topic) => (
-                          <tr key={topic.topicId} className="hover:bg-gray-50">
+                          <tr key={topic.topicId} className="hover:bg-gray-50 dark:bg-gray-700">
                             <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{topic.title}</td>
                             <td className="px-4 py-3 text-sm">
                               <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
