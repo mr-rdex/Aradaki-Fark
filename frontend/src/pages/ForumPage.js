@@ -101,8 +101,8 @@ const ForumPage = () => {
               onClick={() => setSelectedCategory(null)}
               className={`p-4 rounded-lg border-2 transition text-left ${
                 selectedCategory === null
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 dark:bg-gray-700'
               }`}
             >
               <div className="text-2xl mb-2">🌐</div>
@@ -114,12 +114,12 @@ const ForumPage = () => {
                 onClick={() => setSelectedCategory(category.value)}
                 className={`p-4 rounded-lg border-2 transition text-left ${
                   selectedCategory === category.value
-                    ? 'border-blue-500 bg-blue-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900'
+                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 dark:bg-gray-700'
                 }`}
               >
                 <div className="text-2xl mb-2">{category.icon}</div>
-                <div className="font-semibold text-gray-900 text-sm">{category.label}</div>
+                <div className="font-semibold text-gray-900 dark:text-white text-sm">{category.label}</div>
               </button>
             ))}
           </div>
