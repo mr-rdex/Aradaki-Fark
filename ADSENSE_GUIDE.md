@@ -77,19 +77,45 @@ data-ad-client="ca-pub-1234567890123456" // ← Buraya kendi ID'nizi yazın
 
 #### 2. Her Sayfadaki Reklam Alanına Slot ID Ekleyin
 
-**HomePage.js** (Satır ~115):
+**HomePage.js**:
 ```jsx
-<AdSlot slot="1111111111" />  // ← AdSense'den aldığınız Slot ID
+// Son görüntülenen araçların üstü (Satır ~82)
+<AdSlot slot="1111111111" />
+
+// En popüler araçların üstü (Satır ~118)
+<AdSlot slot="2222222222" />
+
+// En iyi araçların üstü (Satır ~157)
+<AdSlot slot="3333333333" />
 ```
 
 **CarDetailPage.js** (Satır ~226):
 ```jsx
-<AdSlot slot="2222222222" />  // ← AdSense'den aldığınız Slot ID
+<AdSlot slot="4444444444" />
 ```
 
-**ComparePage.js** (Satır ~236):
+**ComparePage.js**:
 ```jsx
-<AdSlot slot="3333333333" />  // ← AdSense'den aldığınız Slot ID
+// Başlığın altı (Satır ~193)
+<AdSlot slot="5555555555" />
+
+// Fotoğrafların altı (Satır ~239)
+<AdSlot slot="6666666666" />
+```
+
+**AllCarsPage.js** (Satır ~138):
+```jsx
+<AdSlot slot="7777777777" />
+```
+
+**ForumPage.js** (Satır ~131):
+```jsx
+<AdSlot slot="8888888888" />
+```
+
+**PopularComparisonsPage.js** (Satır ~34):
+```jsx
+<AdSlot slot="9999999999" />
 ```
 
 ### Adım 5: Frontend'i Yeniden Başlatın
