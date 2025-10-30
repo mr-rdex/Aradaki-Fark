@@ -197,7 +197,7 @@ const ComparePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div
             onClick={() => navigate(`/car/${car1.CarID}`)}
-            className="cursor-pointer bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition"
+            className="cursor-pointer bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition"
             data-testid="car1-card"
           >
             <img
@@ -206,11 +206,11 @@ const ComparePage = () => {
               className="w-full h-64 object-cover"
             />
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 {car1.ArabaMarka} {car1.CarModel}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400">{car1.CarPack}</p>
-              <p className="text-2xl font-bold text-blue-600 mt-4">
+              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-4">
                 {formatPrice(car1.CarPrice)}
               </p>
             </div>
@@ -218,7 +218,7 @@ const ComparePage = () => {
 
           <div
             onClick={() => navigate(`/car/${car2.CarID}`)}
-            className="cursor-pointer bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition"
+            className="cursor-pointer bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition"
             data-testid="car2-card"
           >
             <img
@@ -227,11 +227,11 @@ const ComparePage = () => {
               className="w-full h-64 object-cover"
             />
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 {car2.ArabaMarka} {car2.CarModel}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400">{car2.CarPack}</p>
-              <p className="text-2xl font-bold text-blue-600 mt-4">
+              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-4">
                 {formatPrice(car2.CarPrice)}
               </p>
             </div>
