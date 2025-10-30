@@ -31,6 +31,9 @@ const PopularComparisonsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
+        {/* Advertisement - Top of Popular Comparisons */}
+        <AdSlot slot="" />
+        
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <div className="flex items-center">
             <TrendingUp className="w-8 h-8 text-blue-500 mr-3" />
