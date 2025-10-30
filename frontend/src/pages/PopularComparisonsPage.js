@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getPopularComparisons, clearPopularComparisons } from '../utils/localStorage';
+import AdSlot from '../components/AdSlot';
 import { TrendingUp, GitCompare, Trash2 } from 'lucide-react';
 
 const PopularComparisonsPage = () => {
