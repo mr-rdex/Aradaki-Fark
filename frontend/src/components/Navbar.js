@@ -204,7 +204,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="lg:hidden py-4 border-t dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="mb-4 relative">
               <input
                 type="text"
@@ -212,12 +212,12 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => searchQuery && setShowSearchResults(true)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               
               {/* Mobile Search Results Dropdown */}
               {showSearchResults && searchResults.length > 0 && (
-                <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-lg max-h-96 overflow-y-auto z-50 border border-gray-300" data-testid="search-results-mobile">
+                <div className="absolute top-full mt-2 w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg max-h-96 overflow-y-auto z-50 border border-gray-300 dark:border-gray-700" data-testid="search-results-mobile">
                   {searchResults.map((car) => (
                     <div
                       key={car.CarID}
@@ -225,7 +225,7 @@ const Navbar = () => {
                         handleCarClick(car.CarID);
                         setIsMenuOpen(false);
                       }}
-                      className="flex items-center p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                      className="flex items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b dark:border-gray-700 last:border-b-0"
                       data-testid={`search-result-mobile-${car.CarID}`}
                     >
                       <img
@@ -234,10 +234,10 @@ const Navbar = () => {
                         className="w-16 h-12 object-cover rounded mr-3"
                       />
                       <div>
-                        <div className="font-semibold text-gray-900">
+                        <div className="font-semibold text-gray-900 dark:text-white">
                           {car.ArabaMarka} {car.CarModel}
                         </div>
-                        <div className="text-sm text-gray-600">{car.CarPack}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">{car.CarPack}</div>
                       </div>
                     </div>
                   ))}
@@ -246,7 +246,7 @@ const Navbar = () => {
             </div>
             <Link
               to="/cars"
-              className="block py-2 text-gray-700 hover:text-blue-600"
+              className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Tüm Araçlar
