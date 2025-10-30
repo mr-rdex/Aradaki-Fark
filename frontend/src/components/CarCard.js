@@ -113,7 +113,7 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
         >
           <Heart
             className={`w-5 h-5 ${
-              isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600'
+              isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600 dark:text-gray-400'
             }`}
           />
         </button>
