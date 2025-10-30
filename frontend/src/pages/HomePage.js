@@ -66,7 +66,7 @@ const HomePage = () => {
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
               Araçları karşılaştırın, doğru seçimi yapın
             </p>
-            <div className="bg-white rounded-lg shadow-xl max-w-4xl mx-auto">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl mx-auto">
               <ComparisonTool />
             </div>
           </div>
@@ -88,7 +88,7 @@ const HomePage = () => {
                 <div
                   key={car.CarID}
                   onClick={() => navigate(`/car/${car.CarID}`)}
-                  className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
                   <div className="relative h-32">
                     <img

@@ -159,7 +159,7 @@ const ForumTopicPage = () => {
         </button>
 
         {/* Topic */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
           {/* Header */}
           <div className="flex items-start justify-between mb-4">
             <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
@@ -218,7 +218,7 @@ const ForumTopicPage = () => {
         </div>
 
         {/* Comments Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
           <h2 className="text-xl font-bold text-gray-900 mb-6">
             Yorumlar ({comments.length})
           </h2>

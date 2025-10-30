@@ -94,7 +94,7 @@ const ProfilePage = () => {
 
       <div className="container mx-auto px-4 -mt-32 relative z-10">
         {/* Profile Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             {/* Profile Picture */}
             <div className="relative">
@@ -165,7 +165,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
           <div className="flex flex-col sm:flex-row border-b overflow-x-auto">
             <button
               onClick={() => setActiveTab('favorites')}

@@ -54,7 +54,7 @@ const PopularComparisonsPage = () => {
         </div>
 
         {comparisons.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-md p-12 text-center">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-12 text-center">
             <GitCompare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
             <h2 className="text-xl font-semibold text-gray-900 mb-2">
               Henüz karşılaştırma yapılmadı
@@ -75,7 +75,7 @@ const PopularComparisonsPage = () => {
               <div
                 key={comp.key}
                 onClick={() => handleCompare(comp)}
-                className="bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition cursor-pointer"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition cursor-pointer"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex-1 flex items-center space-x-4">

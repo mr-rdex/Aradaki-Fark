@@ -58,7 +58,7 @@ const ProfilePage = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Profile Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
           <div className="flex items-center space-x-6">
             <div className="bg-blue-500 p-6 rounded-full">
               <User className="w-12 h-12 text-white" />
@@ -76,7 +76,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
           <div className="flex flex-col sm:flex-row border-b overflow-x-auto">
             <button
               onClick={() => setActiveTab('favorites')}

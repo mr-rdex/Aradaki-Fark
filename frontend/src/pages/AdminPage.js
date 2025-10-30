@@ -125,7 +125,7 @@ const AdminPage = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-600 text-sm">Toplam Araç</p>
@@ -134,7 +134,7 @@ const AdminPage = () => {
               <CarIcon className="w-12 h-12 text-blue-500" />
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-600 text-sm">Toplam Kullanıcı</p>
@@ -143,7 +143,7 @@ const AdminPage = () => {
               <Users className="w-12 h-12 text-green-500" />
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-600 text-sm">Toplam Yorum</p>
@@ -155,7 +155,7 @@ const AdminPage = () => {
         </div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
           <div className="flex border-b">
             <button
               onClick={() => setActiveTab('cars')}
@@ -522,7 +522,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6 border-b">
           <h2 className="text-2xl font-bold text-gray-900">
             {user.fullName} - Profil Yönetimi

@@ -90,7 +90,7 @@ const ForumPage = () => {
         </div>
 
         {/* Categories */}
-        <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 mb-6">
           <div className="flex items-center mb-4">
             <Filter className="w-5 h-5 text-gray-600 mr-2" />
             <h3 className="font-semibold text-gray-900">Kategoriler</h3>
@@ -125,7 +125,7 @@ const ForumPage = () => {
         </div>
 
         {/* Topics List */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden">
           {topics.length === 0 ? (
             <div className="p-12 text-center">
               <MessageSquare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
@@ -235,7 +235,7 @@ const NewTopicModal = ({ onClose, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6 border-b">
           <h2 className="text-2xl font-bold text-gray-900">Yeni Konu Aç</h2>
         </div>

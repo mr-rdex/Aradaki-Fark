@@ -155,7 +155,7 @@ const CarDetailPage = () => {
 
           {/* Info Section */}
           <div>
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="car-name">
@@ -221,7 +221,7 @@ const CarDetailPage = () => {
         </div>
 
         {/* Technical Specs */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Teknik Özellikler</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <SpecItem label="Marka" value={car.ArabaMarka} />
@@ -248,7 +248,7 @@ const CarDetailPage = () => {
         </div>
 
         {/* Reviews Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-900">Kullanıcı Yorumları</h2>
             {isAuthenticated && !showReviewForm && (

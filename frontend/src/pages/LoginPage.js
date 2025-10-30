@@ -30,7 +30,7 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center px-4">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
           <div className="flex justify-center mb-6">
             <div className="bg-blue-500 p-4 rounded-full">
               <Car className="w-12 h-12 text-white" />
