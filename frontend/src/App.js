@@ -19,10 +19,11 @@ import './App.css';
 
 function App() {
   return (
-    <AuthProvider>
-      <ToastProvider>
-        <BrowserRouter>
-          <div className="App min-h-screen">
+    <BrowserRouter>
+      <ThemeProvider>
+        <AuthProvider>
+          <ToastProvider>
+            <div className="App min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
