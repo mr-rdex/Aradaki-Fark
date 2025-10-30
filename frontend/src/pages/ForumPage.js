@@ -125,6 +125,9 @@ const ForumPage = () => {
           </div>
         </div>
 
+        {/* Advertisement - Below Categories */}
+        <AdSlot slot="" />
+
         {/* Topics List */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden">
           {topics.length === 0 ? (
