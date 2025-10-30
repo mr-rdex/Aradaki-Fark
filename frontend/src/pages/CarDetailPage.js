@@ -221,6 +221,9 @@ const CarDetailPage = () => {
           </div>
         </div>
 
+        {/* Advertisement - Above Technical Specs */}
+        <AdSlot slot="" />
+
         {/* Technical Specs */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Teknik Özellikler</h2>
