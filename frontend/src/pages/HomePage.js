@@ -75,11 +75,11 @@ const HomePage = () => {
 
       {/* Recently Viewed Section - Only show if user has viewed cars */}
       {recentlyViewed.length > 0 && (
-        <section className="py-12 bg-gray-50 dark:bg-gray-700">
+        <section className="py-12 bg-gray-50 dark:bg-gray-800">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
-                <Clock className="w-6 h-6 text-blue-500 mr-3" />
+                <Clock className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Son Görüntülenen Araçlar</h2>
               </div>
             </div>
@@ -88,7 +88,7 @@ const HomePage = () => {
                 <div
                   key={car.CarID}
                   onClick={() => navigate(`/car/${car.CarID}`)}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
+                  className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
                   <div className="relative h-32">
                     <img
@@ -98,8 +98,8 @@ const HomePage = () => {
                     />
                   </div>
                   <div className="p-3">
-                    <h3 className="font-bold text-sm text-gray-900 truncate">{car.ArabaMarka}</h3>
-                    <p className="text-xs text-gray-600 truncate">{car.CarModel}</p>
+                    <h3 className="font-bold text-sm text-gray-900 dark:text-white truncate">{car.ArabaMarka}</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 truncate">{car.CarModel}</p>
                   </div>
                 </div>
               ))}
