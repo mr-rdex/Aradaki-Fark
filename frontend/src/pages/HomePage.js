@@ -5,6 +5,7 @@ import { getRecentlyViewed } from '../utils/localStorage';
 import { Search, ArrowRight, TrendingUp, Zap, DollarSign, Package, Fuel, Clock } from 'lucide-react';
 import CarCard from '../components/CarCard';
 import ComparisonTool from '../components/ComparisonTool';
+import AdSlot from '../components/AdSlot';
 
 const HomePage = () => {
   const navigate = useNavigate();
