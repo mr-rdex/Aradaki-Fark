@@ -129,7 +129,7 @@ const AdminPage = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-600 text-sm">Toplam Araç</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.totalCars}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalCars}</p>
               </div>
               <CarIcon className="w-12 h-12 text-blue-500" />
             </div>
@@ -138,7 +138,7 @@ const AdminPage = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-600 text-sm">Toplam Kullanıcı</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.totalUsers}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalUsers}</p>
               </div>
               <Users className="w-12 h-12 text-green-500" />
             </div>
@@ -147,7 +147,7 @@ const AdminPage = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-600 text-sm">Toplam Yorum</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.totalReviews}</p>
+                <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalReviews}</p>
               </div>
               <BarChart3 className="w-12 h-12 text-purple-500" />
             </div>
@@ -197,7 +197,7 @@ const AdminPage = () => {
             {activeTab === 'cars' && (
               <div>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-                  <h2 className="text-xl font-bold text-gray-900">Araçlar</h2>
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Araçlar</h2>
                   <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                     {/* Search Bar */}
                     <div className="relative flex-1 sm:flex-initial">
@@ -235,7 +235,7 @@ const AdminPage = () => {
                         >
                           <div className="flex items-center">
                             <CarIcon className="w-5 h-5 text-blue-500 mr-3" />
-                            <h3 className="text-lg font-semibold text-gray-900">{brand}</h3>
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{brand}</h3>
                             <span className="ml-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
                               {brandCars.length} araç
                             </span>
@@ -253,20 +253,20 @@ const AdminPage = () => {
                             <table className="w-full">
                               <thead className="bg-gray-50 border-t border-gray-200">
                                 <tr>
-                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Model</th>
-                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Paket</th>
-                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Yıl</th>
-                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Fiyat</th>
-                                  <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Model</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Paket</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Yıl</th>
+                                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Fiyat</th>
+                                  <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900 dark:text-white">İşlemler</th>
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-gray-200 bg-white">
                                 {brandCars.map((car) => (
                                   <tr key={car.CarID} className="hover:bg-gray-50">
-                                    <td className="px-4 py-3 text-sm font-medium text-gray-900">{car.CarModel}</td>
+                                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white">{car.CarModel}</td>
                                     <td className="px-4 py-3 text-sm text-gray-700">{car.CarPack}</td>
-                                    <td className="px-4 py-3 text-sm text-gray-900">{car.CarYear}</td>
-                                    <td className="px-4 py-3 text-sm text-gray-900">
+                                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{car.CarYear}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                                       {car.CarPrice ? `${car.CarPrice.toLocaleString('tr-TR')} TL` : '-'}
                                     </td>
                                     <td className="px-4 py-3 text-sm text-right">
@@ -308,18 +308,18 @@ const AdminPage = () => {
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Ad Soyad</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">E-posta</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Rol</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Badge</th>
-                        <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Ad Soyad</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">E-posta</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Rol</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Badge</th>
+                        <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900 dark:text-white">İşlemler</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {users.map((u) => (
                         <tr key={u.userId} className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-sm text-gray-900">{u.fullName}</td>
-                          <td className="px-4 py-3 text-sm text-gray-900">{u.email}</td>
+                          <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{u.fullName}</td>
+                          <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{u.email}</td>
                           <td className="px-4 py-3 text-sm">
                             <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                               u.role === 'admin'
@@ -376,24 +376,24 @@ const AdminPage = () => {
                     <table className="w-full">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Başlık</th>
-                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Kategori</th>
-                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Kullanıcı</th>
-                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Yorumlar</th>
-                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Beğeni</th>
-                          <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900">İşlemler</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Başlık</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Kategori</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Kullanıcı</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Yorumlar</th>
+                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Beğeni</th>
+                          <th className="px-4 py-3 text-right text-sm font-semibold text-gray-900 dark:text-white">İşlemler</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
                         {forumTopics.map((topic) => (
                           <tr key={topic.topicId} className="hover:bg-gray-50">
-                            <td className="px-4 py-3 text-sm text-gray-900">{topic.title}</td>
+                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{topic.title}</td>
                             <td className="px-4 py-3 text-sm">
                               <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
                                 {topic.category}
                               </span>
                             </td>
-                            <td className="px-4 py-3 text-sm text-gray-900">{topic.userName}</td>
+                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{topic.userName}</td>
                             <td className="px-4 py-3 text-sm text-gray-600">{topic.commentCount}</td>
                             <td className="px-4 py-3 text-sm text-gray-600">{topic.likes}</td>
                             <td className="px-4 py-3 text-sm text-right space-x-2">
@@ -435,7 +435,7 @@ const AdminPage = () => {
                       <div key={comment.commentId} className="bg-gray-50 p-4 rounded-lg">
                         <div className="flex justify-between items-start mb-2">
                           <div>
-                            <span className="font-medium text-gray-900">{comment.userName}</span>
+                            <span className="font-medium text-gray-900 dark:text-white">{comment.userName}</span>
                             <span className="text-xs text-gray-500 ml-2">
                               {new Date(comment.createdAt).toLocaleDateString('tr-TR')}
                             </span>
@@ -524,7 +524,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6 border-b">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {user.fullName} - Profil Yönetimi
           </h2>
         </div>
@@ -578,7 +578,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
                   <div className="flex-1">
                     <div className="flex items-center mb-1">
                       <span className="text-2xl mr-2">{badge.icon}</span>
-                      <span className="font-semibold text-gray-900">{badge.label}</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">{badge.label}</span>
                     </div>
                     <p className="text-sm text-gray-600">{badge.description}</p>
                   </div>

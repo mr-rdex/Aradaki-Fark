@@ -139,15 +139,15 @@ const ProfilePage = () => {
               {/* Stats */}
               <div className="flex flex-wrap gap-6 mt-4 justify-center md:justify-start text-sm">
                 <div>
-                  <span className="font-bold text-gray-900">{forumTopics.length}</span>
+                  <span className="font-bold text-gray-900 dark:text-white">{forumTopics.length}</span>
                   <span className="text-gray-600 ml-1">Konu</span>
                 </div>
                 <div>
-                  <span className="font-bold text-gray-900">{forumComments.length}</span>
+                  <span className="font-bold text-gray-900 dark:text-white">{forumComments.length}</span>
                   <span className="text-gray-600 ml-1">Yorum</span>
                 </div>
                 <div>
-                  <span className="font-bold text-gray-900">{reviews.length}</span>
+                  <span className="font-bold text-gray-900 dark:text-white">{reviews.length}</span>
                   <span className="text-gray-600 ml-1">İnceleme</span>
                 </div>
               </div>
@@ -256,9 +256,9 @@ const ProfilePage = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-2">
-                              <p className="font-semibold text-gray-900">{comp.car1Name}</p>
+                              <p className="font-semibold text-gray-900 dark:text-white">{comp.car1Name}</p>
                               <span className="text-gray-400">vs</span>
-                              <p className="font-semibold text-gray-900">{comp.car2Name}</p>
+                              <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                             </div>
                           </div>
                           <button
@@ -287,9 +287,9 @@ const ProfilePage = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-2">
-                              <p className="font-semibold text-gray-900">{comp.car1Name}</p>
+                              <p className="font-semibold text-gray-900 dark:text-white">{comp.car1Name}</p>
                               <span className="text-gray-400">vs</span>
-                              <p className="font-semibold text-gray-900">{comp.car2Name}</p>
+                              <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                             </div>
                             <div className="text-sm text-gray-600">
                               <span>{new Date(comp.comparedAt).toLocaleDateString('tr-TR', { 
@@ -379,7 +379,7 @@ const ProfilePage = () => {
                       <div key={review.reviewId} className="bg-gray-50 p-6 rounded-lg">
                         <div className="flex items-start justify-between mb-2">
                           <div>
-                            <p className="font-semibold text-gray-900">{review.carId}</p>
+                            <p className="font-semibold text-gray-900 dark:text-white">{review.carId}</p>
                             <p className="text-sm text-gray-500">
                               {new Date(review.createdAt).toLocaleDateString('tr-TR')}
                             </p>

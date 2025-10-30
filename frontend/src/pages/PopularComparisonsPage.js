@@ -34,7 +34,7 @@ const PopularComparisonsPage = () => {
           <div className="flex items-center">
             <TrendingUp className="w-8 h-8 text-blue-500 mr-3" />
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                 Popüler Karşılaştırmalar
               </h1>
               <p className="text-gray-600 text-sm mt-1">

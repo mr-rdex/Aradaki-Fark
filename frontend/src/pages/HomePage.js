@@ -80,7 +80,7 @@ const HomePage = () => {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center">
                 <Clock className="w-6 h-6 text-blue-500 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Son Görüntülenen Araçlar</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Son Görüntülenen Araçlar</h2>
               </div>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -112,7 +112,7 @@ const HomePage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900" data-testid="popular-section-title">En Popüler Araçlar</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white" data-testid="popular-section-title">En Popüler Araçlar</h2>
             <Link
               to="/cars"
               className="flex items-center text-blue-600 hover:text-blue-700 font-medium"
@@ -142,7 +142,7 @@ const HomePage = () => {
               <div className="bg-blue-500 p-3 rounded-lg mr-4">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">En İyi Hızlanma</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">En İyi Hızlanma</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestAcceleration.map((car) => (
@@ -157,7 +157,7 @@ const HomePage = () => {
               <div className="bg-green-500 p-3 rounded-lg mr-4">
                 <Fuel className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">En İyi Yakıt Ekonomisi</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">En İyi Yakıt Ekonomisi</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestEconomy.map((car) => (
@@ -172,7 +172,7 @@ const HomePage = () => {
               <div className="bg-purple-500 p-3 rounded-lg mr-4">
                 <Package className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">En İyi Bagaj Kapasitesi</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">En İyi Bagaj Kapasitesi</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestBaggage.map((car) => (
@@ -187,7 +187,7 @@ const HomePage = () => {
               <div className="bg-red-500 p-3 rounded-lg mr-4">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">En Yüksek Beygir Gücü</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">En Yüksek Beygir Gücü</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestHorsepower.map((car) => (
@@ -202,7 +202,7 @@ const HomePage = () => {
               <div className="bg-yellow-500 p-3 rounded-lg mr-4">
                 <DollarSign className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">En Uygun Fiyat</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">En Uygun Fiyat</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {bestPrice.map((car) => (

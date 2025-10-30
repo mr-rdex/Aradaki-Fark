@@ -121,7 +121,7 @@ const CarDetailPage = () => {
         <div className="container mx-auto px-4 py-4">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center text-gray-600 hover:text-gray-900"
+            className="flex items-center text-gray-600 hover:text-gray-900 dark:text-white"
             data-testid="back-button"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
@@ -167,7 +167,7 @@ const CarDetailPage = () => {
                 {car.averageRating > 0 && (
                   <div className="flex items-center bg-yellow-50 px-3 py-2 rounded-lg">
                     <Star className="w-5 h-5 text-yellow-400 fill-current mr-2" />
-                    <span className="text-xl font-bold text-gray-900">{car.averageRating}</span>
+                    <span className="text-xl font-bold text-gray-900 dark:text-white">{car.averageRating}</span>
                     <span className="text-gray-600 ml-1">({car.reviewCount} yorum)</span>
                   </div>
                 )}
@@ -183,28 +183,28 @@ const CarDetailPage = () => {
                   <Zap className="w-8 h-8 text-blue-500 mr-3" />
                   <div>
                     <p className="text-sm text-gray-600">0-100 km/s</p>
-                    <p className="text-xl font-bold text-gray-900">{car.CarAcceleration}s</p>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarAcceleration}s</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-green-50 p-4 rounded-lg">
                   <Fuel className="w-8 h-8 text-green-500 mr-3" />
                   <div>
                     <p className="text-sm text-gray-600">Yakıt</p>
-                    <p className="text-xl font-bold text-gray-900">{car.CarEconomy}L/100km</p>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarEconomy}L/100km</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-purple-50 p-4 rounded-lg">
                   <Package className="w-8 h-8 text-purple-500 mr-3" />
                   <div>
                     <p className="text-sm text-gray-600">Bagaj</p>
-                    <p className="text-xl font-bold text-gray-900">{car.CarBaggageLT}L</p>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarBaggageLT}L</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-red-50 p-4 rounded-lg">
                   <DollarSign className="w-8 h-8 text-red-500 mr-3" />
                   <div>
                     <p className="text-sm text-gray-600">Beygir Gücü</p>
-                    <p className="text-xl font-bold text-gray-900">{car.CarHorsePower} HP</p>
+                    <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarHorsePower} HP</p>
                   </div>
                 </div>
               </div>
@@ -250,7 +250,7 @@ const CarDetailPage = () => {
         {/* Reviews Section */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Kullanıcı Yorumları</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Kullanıcı Yorumları</h2>
             {isAuthenticated && !showReviewForm && (
               <button
                 onClick={() => setShowReviewForm(true)}
@@ -325,7 +325,7 @@ const CarDetailPage = () => {
                 <div key={review.reviewId} className="border-b pb-4 last:border-b-0" data-testid={`review-${review.reviewId}`}>
                   <div className="flex items-center justify-between mb-2">
                     <div>
-                      <p className="font-semibold text-gray-900">{review.userName}</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">{review.userName}</p>
                       <p className="text-sm text-gray-500">
                         {new Date(review.createdAt).toLocaleDateString('tr-TR')}
                       </p>
@@ -349,7 +349,7 @@ const CarDetailPage = () => {
 const SpecItem = ({ label, value }) => (
   <div className="bg-gray-50 p-4 rounded-lg">
     <p className="text-sm text-gray-600 mb-1">{label}</p>
-    <p className="font-semibold text-gray-900">{value}</p>
+    <p className="font-semibold text-gray-900 dark:text-white">{value}</p>
   </div>
 );
 

@@ -93,7 +93,7 @@ const ForumPage = () => {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 mb-6">
           <div className="flex items-center mb-4">
             <Filter className="w-5 h-5 text-gray-600 mr-2" />
-            <h3 className="font-semibold text-gray-900">Kategoriler</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white">Kategoriler</h3>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <button
@@ -105,7 +105,7 @@ const ForumPage = () => {
               }`}
             >
               <div className="text-2xl mb-2">🌐</div>
-              <div className="font-semibold text-gray-900">Tüm Konular</div>
+              <div className="font-semibold text-gray-900 dark:text-white">Tüm Konular</div>
             </button>
             {CATEGORIES.map(category => (
               <button
@@ -237,7 +237,7 @@ const NewTopicModal = ({ onClose, onSuccess }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6 border-b">
-          <h2 className="text-2xl font-bold text-gray-900">Yeni Konu Aç</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Yeni Konu Aç</h2>
         </div>
         
         <form onSubmit={handleSubmit} className="p-6 space-y-6">

@@ -64,7 +64,7 @@ const ProfilePage = () => {
               <User className="w-12 h-12 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900" data-testid="profile-name">{user?.fullName}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white" data-testid="profile-name">{user?.fullName}</h1>
               <p className="text-gray-600">{user?.email}</p>
               {user?.role === 'admin' && (
                 <span className="inline-block mt-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -162,9 +162,9 @@ const ProfilePage = () => {
                         className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 cursor-pointer transition flex items-center justify-between"
                       >
                         <div>
-                          <p className="font-semibold text-gray-900">{comp.car1Name}</p>
+                          <p className="font-semibold text-gray-900 dark:text-white">{comp.car1Name}</p>
                           <p className="text-sm text-gray-600">vs</p>
-                          <p className="font-semibold text-gray-900">{comp.car2Name}</p>
+                          <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                         </div>
                         <GitCompare className="w-6 h-6 text-blue-500" />
                       </div>
@@ -187,7 +187,7 @@ const ProfilePage = () => {
                       <div key={review.reviewId} className="bg-gray-50 p-6 rounded-lg">
                         <div className="flex items-start justify-between mb-2">
                           <div>
-                            <p className="font-semibold text-gray-900">
+                            <p className="font-semibold text-gray-900 dark:text-white">
                               {review.carId}
                             </p>
                             <p className="text-sm text-gray-500">
@@ -224,9 +224,9 @@ const ProfilePage = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-2">
-                              <p className="font-semibold text-gray-900">{comp.car1Name}</p>
+                              <p className="font-semibold text-gray-900 dark:text-white">{comp.car1Name}</p>
                               <span className="text-gray-400">vs</span>
-                              <p className="font-semibold text-gray-900">{comp.car2Name}</p>
+                              <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                             </div>
                             <div className="flex items-center space-x-4 text-sm text-gray-600">
                               <span>{comp.count} kez karşılaştırıldı</span>

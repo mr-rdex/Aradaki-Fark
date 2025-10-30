@@ -119,7 +119,7 @@ const ComparePage = () => {
           <div className="container mx-auto px-4 py-4">
             <button
               onClick={() => navigate(-1)}
-              className="flex items-center text-gray-600 hover:text-gray-900"
+              className="flex items-center text-gray-600 hover:text-gray-900 dark:text-white"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Geri Dön
@@ -149,7 +149,7 @@ const ComparePage = () => {
         <div className="container mx-auto px-4 py-4">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center text-gray-600 hover:text-gray-900"
+            className="flex items-center text-gray-600 hover:text-gray-900 dark:text-white"
             data-testid="back-button"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
@@ -160,7 +160,7 @@ const ComparePage = () => {
 
       <div className="container mx-auto px-4 mt-8">
         <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900" data-testid="compare-title">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white" data-testid="compare-title">
             Araç Karşılaştırma
           </h1>
           <div className="flex gap-3">
@@ -238,13 +238,13 @@ const ComparePage = () => {
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">
                     Özellik
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">
                     {car1.ArabaMarka} {car1.CarModel}
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white">
                     {car2.ArabaMarka} {car2.CarModel}
                   </th>
                 </tr>
@@ -391,7 +391,7 @@ const ComparePage = () => {
 const ComparisonRow = ({ label, value1, value2, better, highlight = false }) => {
   return (
     <tr className={highlight ? 'bg-blue-50' : ''}>
-      <td className="px-6 py-4 text-sm font-medium text-gray-900">
+      <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
         {label}
       </td>
       <td className={`px-6 py-4 text-center ${

@@ -137,7 +137,7 @@ const CarFormPage = () => {
               <ArrowLeft className="w-5 h-5 mr-2" />
               Admin Paneline Dön
             </button>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {isEditMode ? 'Araç Düzenle' : 'Yeni Araç Ekle'}
             </h1>
           </div>

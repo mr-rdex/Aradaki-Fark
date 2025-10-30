@@ -217,7 +217,7 @@ const RegisterPage = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
             <div className="p-6 border-b sticky top-0 bg-white">
-              <h2 className="text-2xl font-bold text-gray-900">KVKK Aydınlatma Metni</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">KVKK Aydınlatma Metni</h2>
             </div>
             
             <div className="p-6 space-y-4 text-gray-700 text-sm">

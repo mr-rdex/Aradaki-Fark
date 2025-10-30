@@ -189,7 +189,7 @@ const ForumTopicPage = () => {
               )}
             </div>
             <div>
-              <p className="font-semibold text-gray-900">{topic.userName}</p>
+              <p className="font-semibold text-gray-900 dark:text-white">{topic.userName}</p>
               <p className="text-sm text-gray-500">{formatDate(topic.createdAt)}</p>
             </div>
           </div>
@@ -289,7 +289,7 @@ const ForumTopicPage = () => {
                         )}
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">{comment.userName}</p>
+                        <p className="font-semibold text-gray-900 dark:text-white">{comment.userName}</p>
                         <p className="text-xs text-gray-500">{formatDate(comment.createdAt)}</p>
                       </div>
                     </div>
