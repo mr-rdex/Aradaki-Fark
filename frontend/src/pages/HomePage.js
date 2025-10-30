@@ -109,13 +109,13 @@ const HomePage = () => {
       )}
 
       {/* Popular Cars Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white" data-testid="popular-section-title">En Popüler Araçlar</h2>
             <Link
               to="/cars"
-              className="flex items-center text-blue-600 hover:text-blue-700 font-medium"
+              className="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
               data-testid="view-all-cars-link"
             >
               Tümünü Gör <ArrowRight className="ml-2 w-5 h-5" />
