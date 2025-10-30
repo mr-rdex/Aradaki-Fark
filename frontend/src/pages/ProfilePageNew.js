@@ -79,7 +79,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Cover Photo Section */}
       <div 
         className="h-64 bg-gradient-to-r from-blue-500 to-blue-700 relative"
