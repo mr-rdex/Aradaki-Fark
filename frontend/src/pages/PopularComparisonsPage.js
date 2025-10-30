@@ -29,7 +29,7 @@ const PopularComparisonsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
         {/* Advertisement - Top of Popular Comparisons */}
         <AdSlot slot="" />
@@ -41,7 +41,7 @@ const PopularComparisonsPage = () => {
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                 Popüler Karşılaştırmalar
               </h1>
-              <p className="text-gray-600 text-sm mt-1">
+              <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
                 En çok karşılaştırılan araçlar
               </p>
             </div>
@@ -49,7 +49,7 @@ const PopularComparisonsPage = () => {
           {comparisons.length > 0 && (
             <button
               onClick={handleClear}
-              className="flex items-center text-red-600 hover:text-red-700 text-sm font-medium"
+              className="flex items-center text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm font-medium"
             >
               <Trash2 className="w-4 h-4 mr-1" />
               Temizle
@@ -59,11 +59,11 @@ const PopularComparisonsPage = () => {
 
         {comparisons.length === 0 ? (
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-12 text-center">
-            <GitCompare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            <GitCompare className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Henüz karşılaştırma yapılmadı
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               Araç karşılaştırmaları yaptıkça burada görünecek
             </p>
             <button
