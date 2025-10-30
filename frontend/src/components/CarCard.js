@@ -64,7 +64,7 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
     return (
       <div
         onClick={() => navigate(`/car/${car.CarID}`)}
-        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-all transform hover:-translate-y-1"
         data-testid={`car-card-${car.CarID}`}
       >
         <div className="relative h-32">
