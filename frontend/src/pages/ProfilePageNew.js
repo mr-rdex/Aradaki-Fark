@@ -140,15 +140,15 @@ const ProfilePage = () => {
               <div className="flex flex-wrap gap-6 mt-4 justify-center md:justify-start text-sm">
                 <div>
                   <span className="font-bold text-gray-900 dark:text-white">{forumTopics.length}</span>
-                  <span className="text-gray-600 ml-1">Konu</span>
+                  <span className="text-gray-600 dark:text-gray-400 ml-1">Konu</span>
                 </div>
                 <div>
                   <span className="font-bold text-gray-900 dark:text-white">{forumComments.length}</span>
-                  <span className="text-gray-600 ml-1">Yorum</span>
+                  <span className="text-gray-600 dark:text-gray-400 ml-1">Yorum</span>
                 </div>
                 <div>
                   <span className="font-bold text-gray-900 dark:text-white">{reviews.length}</span>
-                  <span className="text-gray-600 ml-1">İnceleme</span>
+                  <span className="text-gray-600 dark:text-gray-400 ml-1">İnceleme</span>
                 </div>
               </div>
             </div>
