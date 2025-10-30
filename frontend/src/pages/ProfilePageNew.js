@@ -252,12 +252,12 @@ const ProfilePage = () => {
                 ) : (
                   <div className="space-y-4">
                     {comparisons.map((comp, index) => (
-                      <div key={index} className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition">
+                      <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition">
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-2">
                               <p className="font-semibold text-gray-900 dark:text-white">{comp.car1Name}</p>
-                              <span className="text-gray-400">vs</span>
+                              <span className="text-gray-400 dark:text-gray-500">vs</span>
                               <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                             </div>
                           </div>
@@ -279,16 +279,16 @@ const ProfilePage = () => {
             {activeTab === 'history' && (
               <div>
                 {comparisonHistory.length === 0 ? (
-                  <p className="text-gray-500 text-center py-8">Henüz karşılaştırma geçmişi yok</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-center py-8">Henüz karşılaştırma geçmişi yok</p>
                 ) : (
                   <div className="space-y-4">
                     {comparisonHistory.slice().reverse().map((comp, index) => (
-                      <div key={index} className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition">
+                      <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition">
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-2">
                               <p className="font-semibold text-gray-900 dark:text-white">{comp.car1Name}</p>
-                              <span className="text-gray-400">vs</span>
+                              <span className="text-gray-400 dark:text-gray-500">vs</span>
                               <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                             </div>
                             <div className="text-sm text-gray-600 dark:text-gray-400">
