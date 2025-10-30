@@ -161,7 +161,7 @@ const CarDetailPage = () => {
                   <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="car-name">
                     {car.ArabaMarka} {car.CarModel}
                   </h1>
-                  <p className="text-xl text-gray-600">{car.CarPack}</p>
+                  <p className="text-xl text-gray-600 dark:text-gray-400">{car.CarPack}</p>
                   <p className="text-gray-500">{car.CarYear}</p>
                 </div>
                 {car.averageRating > 0 && (
@@ -182,28 +182,28 @@ const CarDetailPage = () => {
                 <div className="flex items-center bg-blue-50 p-4 rounded-lg">
                   <Zap className="w-8 h-8 text-blue-500 mr-3" />
                   <div>
-                    <p className="text-sm text-gray-600">0-100 km/s</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">0-100 km/s</p>
                     <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarAcceleration}s</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-green-50 p-4 rounded-lg">
                   <Fuel className="w-8 h-8 text-green-500 mr-3" />
                   <div>
-                    <p className="text-sm text-gray-600">Yakıt</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Yakıt</p>
                     <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarEconomy}L/100km</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-purple-50 p-4 rounded-lg">
                   <Package className="w-8 h-8 text-purple-500 mr-3" />
                   <div>
-                    <p className="text-sm text-gray-600">Bagaj</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Bagaj</p>
                     <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarBaggageLT}L</p>
                   </div>
                 </div>
                 <div className="flex items-center bg-red-50 p-4 rounded-lg">
                   <DollarSign className="w-8 h-8 text-red-500 mr-3" />
                   <div>
-                    <p className="text-sm text-gray-600">Beygir Gücü</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Beygir Gücü</p>
                     <p className="text-xl font-bold text-gray-900 dark:text-white">{car.CarHorsePower} HP</p>
                   </div>
                 </div>

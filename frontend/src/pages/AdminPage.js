@@ -331,7 +331,7 @@ const AdminPage = () => {
                           </td>
                           <td className="px-4 py-3 text-sm">
                             {u.badges && u.badges.length > 0 ? (
-                              <span className="text-xs text-gray-600">{u.badges.length} badge</span>
+                              <span className="text-xs text-gray-600 dark:text-gray-400">{u.badges.length} badge</span>
                             ) : (
                               <span className="text-xs text-gray-400">Badge yok</span>
                             )}
@@ -394,8 +394,8 @@ const AdminPage = () => {
                               </span>
                             </td>
                             <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{topic.userName}</td>
-                            <td className="px-4 py-3 text-sm text-gray-600">{topic.commentCount}</td>
-                            <td className="px-4 py-3 text-sm text-gray-600">{topic.likes}</td>
+                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{topic.commentCount}</td>
+                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{topic.likes}</td>
                             <td className="px-4 py-3 text-sm text-right space-x-2">
                               <button
                                 onClick={() => navigate(`/forum/${topic.topicId}`)}
@@ -580,7 +580,7 @@ const BadgeModal = ({ user, onClose, onSave }) => {
                       <span className="text-2xl mr-2">{badge.icon}</span>
                       <span className="font-semibold text-gray-900 dark:text-white">{badge.label}</span>
                     </div>
-                    <p className="text-sm text-gray-600">{badge.description}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{badge.description}</p>
                   </div>
                 </label>
               ))}

@@ -291,7 +291,7 @@ const ProfilePage = () => {
                               <span className="text-gray-400">vs</span>
                               <p className="font-semibold text-gray-900 dark:text-white">{comp.car2Name}</p>
                             </div>
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">
                               <span>{new Date(comp.comparedAt).toLocaleDateString('tr-TR', { 
                                 day: 'numeric', 
                                 month: 'long',
@@ -331,7 +331,7 @@ const ProfilePage = () => {
                           className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 cursor-pointer transition"
                         >
                           <h4 className="font-semibold text-gray-900 mb-1">{topic.title}</h4>
-                          <div className="flex items-center space-x-4 text-sm text-gray-600">
+                          <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
                             <span>{topic.category}</span>
                             <span>•</span>
                             <span>{topic.commentCount} yorum</span>

@@ -203,7 +203,7 @@ const ComparePage = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 {car1.ArabaMarka} {car1.CarModel}
               </h2>
-              <p className="text-lg text-gray-600">{car1.CarPack}</p>
+              <p className="text-lg text-gray-600 dark:text-gray-400">{car1.CarPack}</p>
               <p className="text-2xl font-bold text-blue-600 mt-4">
                 {formatPrice(car1.CarPrice)}
               </p>
@@ -224,7 +224,7 @@ const ComparePage = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 {car2.ArabaMarka} {car2.CarModel}
               </h2>
-              <p className="text-lg text-gray-600">{car2.CarPack}</p>
+              <p className="text-lg text-gray-600 dark:text-gray-400">{car2.CarPack}</p>
               <p className="text-2xl font-bold text-blue-600 mt-4">
                 {formatPrice(car2.CarPrice)}
               </p>

@@ -210,7 +210,7 @@ const ForumTopicPage = () => {
               <ThumbsUp className={`w-5 h-5 ${isLiked ? 'fill-current' : ''}`} />
               <span>{topic.likes} Beğeni</span>
             </button>
-            <div className="flex items-center space-x-2 text-gray-600">
+            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
               <MessageSquare className="w-5 h-5" />
               <span>{topic.commentCount} Yorum</span>
             </div>
@@ -246,7 +246,7 @@ const ForumTopicPage = () => {
             </form>
           ) : (
             <div className="mb-8 p-4 bg-gray-50 rounded-lg text-center">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-400">
                 Yorum yapmak için{' '}
                 <button
                   onClick={() => navigate('/login')}

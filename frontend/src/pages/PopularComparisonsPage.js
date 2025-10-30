@@ -92,7 +92,7 @@ const PopularComparisonsPage = () => {
                           {comp.car2Name}
                         </span>
                       </div>
-                      <div className="flex items-center mt-2 text-sm text-gray-600">
+                      <div className="flex items-center mt-2 text-sm text-gray-600 dark:text-gray-400">
                         <GitCompare className="w-4 h-4 mr-1" />
                         <span>{comp.count} kez karşılaştırıldı</span>
                       </div>

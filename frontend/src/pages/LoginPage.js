@@ -88,7 +88,7 @@ const LoginPage = () => {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
               Hesabınız yok mu?{' '}
               <Link to="/register" className="text-blue-500 hover:text-blue-600 font-medium" data-testid="register-link">
                 Kayıt Olun

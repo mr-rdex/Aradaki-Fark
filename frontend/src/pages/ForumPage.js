@@ -70,7 +70,7 @@ const ForumPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Forum</h1>
-              <p className="text-gray-600">Araçlar hakkında soru sorun, deneyimlerinizi paylaşın</p>
+              <p className="text-gray-600 dark:text-gray-400">Araçlar hakkında soru sorun, deneyimlerinizi paylaşın</p>
             </div>
             <button
               onClick={() => {
