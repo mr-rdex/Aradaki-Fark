@@ -4,6 +4,7 @@ import { carAPI, reviewAPI, favoritesAPI } from '../api';
 import { useAuth } from '../contexts/AuthContext';
 import { addRecentlyViewed } from '../utils/localStorage';
 import { Heart, Star, ArrowLeft, Zap, Fuel, Package, DollarSign } from 'lucide-react';
+import AdSlot from '../components/AdSlot';
 
 const CarDetailPage = () => {
   const { id } = useParams();
