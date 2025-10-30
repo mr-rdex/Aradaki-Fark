@@ -51,10 +51,11 @@ function App() {
                 }
               />
             </Routes>
-          </div>
-        </BrowserRouter>
-      </ToastProvider>
-    </AuthProvider>
+            </div>
+          </ToastProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
