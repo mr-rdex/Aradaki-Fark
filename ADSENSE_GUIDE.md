@@ -2,18 +2,33 @@
 
 ## Reklam Alanları Nereye Eklendi?
 
-Sitenizde 3 stratejik konumda reklam alanları oluşturuldu:
+Sitenizde **toplam 9 stratejik konumda** reklam alanları oluşturuldu:
 
-### 1. Anasayfa (HomePage.js)
-- **Konum**: Karşılaştırma aracının altı, "En Popüler Araçlar" bölümünün üstü
+### 1. Anasayfa (HomePage.js) - 3 Reklam Alanı
+- **Konum 1**: Son görüntülenen araçların üstü (eğer kullanıcı araç görüntülemişse)
+- **Konum 2**: "En Popüler Araçlar" bölümünün üstü
+- **Konum 3**: "En İyi Araçlar" bölümünün üstü
 - **Format**: Leaderboard (728x90)
 
-### 2. Araç Detay Sayfası (CarDetailPage.js)
+### 2. Araç Detay Sayfası (CarDetailPage.js) - 1 Reklam Alanı
 - **Konum**: Teknik Özelliklerin hemen üstü
 - **Format**: Leaderboard (728x90)
 
-### 3. Karşılaştırma Sonuç Sayfası (ComparePage.js)
-- **Konum**: Araç fotoğraflarının altı, karşılaştırma tablosunun üstü
+### 3. Karşılaştırma Sonuç Sayfası (ComparePage.js) - 2 Reklam Alanı
+- **Konum 1**: Sayfa başlığının altı
+- **Konum 2**: Araç fotoğraflarının altı
+- **Format**: Leaderboard (728x90)
+
+### 4. Tüm Araçlar Sayfası (AllCarsPage.js) - 1 Reklam Alanı
+- **Konum**: Sayfa başında, "Tüm Araçlar" başlığından önce
+- **Format**: Leaderboard (728x90)
+
+### 5. Forum Sayfası (ForumPage.js) - 1 Reklam Alanı
+- **Konum**: Kategorilerin hemen altı, konu listesinin üstü
+- **Format**: Leaderboard (728x90)
+
+### 6. Popüler Karşılaştırmalar Sayfası (PopularComparisonsPage.js) - 1 Reklam Alanı
+- **Konum**: Sayfa başında, başlıktan önce
 - **Format**: Leaderboard (728x90)
 
 ---
