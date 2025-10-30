@@ -66,7 +66,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-testid="logo-link">
             <Car className="w-8 h-8 text-blue-500" />
-            <span className="text-xl md:text-2xl font-bold text-yellow-400">Aradaki Fark</span>
+            <span className="text-xl md:text-2xl font-bold text-blue-500">Aradaki Fark</span>
           </Link>
 
           {/* Search Bar - Desktop */}
