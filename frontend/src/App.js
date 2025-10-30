@@ -48,6 +48,7 @@ function App() {
                       <Route path="/forum" element={<ForumPage />} />
                       <Route path="/forum/:topicId" element={<ForumTopicPage />} />
                     </Routes>
+                    <Footer />
                   </>
                 }
               />
