@@ -152,7 +152,7 @@ const ComparisonTool = () => {
               }}
               onFocus={() => setShowDropdown2(true)}
               placeholder="İkinci aracı yazın veya seçin"
-              className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              className="w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white bg-white dark:bg-gray-800"
               data-testid="compare-car2-search"
             />
             {car2 && (
