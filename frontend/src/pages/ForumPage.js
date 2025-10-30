@@ -137,12 +137,12 @@ const ForumPage = () => {
               <p className="text-gray-400 mt-2">İlk konuyu siz açın!</p>
             </div>
           ) : (
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-gray-200 dark:divide-gray-700">
               {topics.map(topic => (
                 <div
                   key={topic.topicId}
                   onClick={() => navigate(`/forum/${topic.topicId}`)}
-                  className="p-6 hover:bg-gray-50 cursor-pointer transition"
+                  className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition"
                 >
                   <div className="flex items-start gap-4">
                     {/* Category Icon */}
@@ -152,13 +152,13 @@ const ForumPage = () => {
 
                     {/* Topic Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-blue-600">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400">
                         {topic.title}
                       </h3>
-                      <p className="text-gray-600 text-sm line-clamp-2 mb-3">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-3">
                         {topic.content}
                       </p>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <span className="flex items-center">
                           <span className="font-medium text-gray-700 dark:text-gray-300">{topic.userName}</span>
                         </span>
@@ -179,7 +179,7 @@ const ForumPage = () => {
 
                     {/* Category Badge */}
                     <div className="hidden sm:block">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium">
                         {topic.category}
                       </span>
                     </div>
