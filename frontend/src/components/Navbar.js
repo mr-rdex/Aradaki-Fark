@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { carAPI } from '../api';
-import { Search, Menu, X, User, LogOut, Heart, Settings, Car } from 'lucide-react';
+import { Search, Menu, X, User, LogOut, Heart, Settings, Car, Moon, Sun } from 'lucide-react';
 
 const Navbar = () => {
   const navigate = useNavigate();
