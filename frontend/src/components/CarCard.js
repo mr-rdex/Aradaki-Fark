@@ -147,8 +147,8 @@ const CarCard = ({ car, compact = false, showStat = null }) => {
             <span className="font-semibold text-gray-900 dark:text-white">{car.CarEconomy}L/100km</span>
           </div>
         </div>
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <p className="text-lg font-bold text-blue-600">{formatPrice(car.CarPrice)}</p>
+        <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+          <p className="text-lg font-bold text-blue-600 dark:text-blue-400">{formatPrice(car.CarPrice)}</p>
         </div>
       </div>
     </div>
